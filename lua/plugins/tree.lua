@@ -8,7 +8,7 @@ return {
     end,
     opts = {
       sources = { "filesystem", "buffers", "git_status", "document_symbols" },
-      open_files_do_not_replace_types = { "terminal", "Trouble", "trouble", "qf", "Outline" },
+      operjkiles_do_not_replace_types = { "terminal", "Trouble", "trouble", "qf", "Outline" },
       filesystem = {
         bind_to_cwd = false,
         follow_current_file = { enabled = true },

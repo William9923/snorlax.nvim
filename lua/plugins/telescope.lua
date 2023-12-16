@@ -3,6 +3,7 @@ return {
   "nvim-telescope/telescope.nvim",
   keys = {
     { "<space>ff", false },
+    { "<space>,", false },
     {
       ";f",
       function()
