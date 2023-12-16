@@ -2,7 +2,7 @@ return {
   {
     "nvim-neo-tree/neo-tree.nvim",
     cmd = "Neotree",
-    lazy = false,
+    lazy = true,
     deactivate = function()
       vim.cmd([[Neotree close]])
     end,
