@@ -2,18 +2,18 @@ return {
   {
     "nvim-neo-tree/neo-tree.nvim",
     cmd = "Neotree",
-    lazy = false,
+    lazy = true,
     opts = {
       window = {
         width = 25,
         mapping_options = {
           noremap = false,
-          nowait = true,
+          nowait = true, -- NOTE: not wait for any default keymap associated with 'o'
           silent = true,
         },
         mappings = {
           ["<space>"] = "none",
-          ["o"] = "open",
+          ["o"] = "open", -- NOTE: to make the behavior same with neotree
         },
       },
     },

@@ -1,45 +1,45 @@
 local actions = require("telescope.actions")
 return {
   "nvim-telescope/telescope.nvim",
-  keys = {
-    { "<space>ff", false },
-    { "<space>,", false },
-    {
-      ";f",
-      function()
-        require("telescope.builtin").find_files()
-      end,
-      desc = "Find Files",
-    },
-    {
-      ";r",
-      function()
-        require("telescope.builtin").live_grep()
-      end,
-      desc = "Live Grep Search",
-    },
-    {
-      ";b",
-      function()
-        require("telescope.builtin").buffers()
-      end,
-      desc = "List Buffer",
-    },
-    {
-      ";d",
-      function()
-        require("telescope.builtin").diagnostics()
-      end,
-      desc = "List Diagnostics",
-    },
-    {
-      ";k",
-      function()
-        require("telescope.builtin").keymaps()
-      end,
-      desc = "List Diagnostics",
-    },
-  },
+  keys = function()
+    return {
+      {
+        ";f",
+        function()
+          require("telescope.builtin").find_files()
+        end,
+        desc = "Find Files",
+      },
+      {
+        ";r",
+        function()
+          require("telescope.builtin").live_grep()
+        end,
+        desc = "Live Grep Search",
+      },
+      {
+        ";b",
+        function()
+          require("telescope.builtin").buffers()
+        end,
+        desc = "List Buffer",
+      },
+      {
+        ";d",
+        function()
+          require("telescope.builtin").diagnostics()
+        end,
+        desc = "List Diagnostics",
+      },
+      {
+        ";k",
+        function()
+          require("telescope.builtin").keymaps()
+        end,
+        desc = "List Diagnostics",
+      },
+    }
+  end,
   opts = {
     defaults = {
       theme = "ivy",
