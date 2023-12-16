@@ -4,6 +4,7 @@ return {
   { "echasnovski/mini.ai", enabled = false },
   { "folke/which-key.nvim", enabled = false },
   { "ggandor/leap.nvim", enabled = false },
+  { "folke/flash.nvim", enabled = false },
   {
     "LazyVim/LazyVim",
     opts = {
