@@ -14,6 +14,7 @@ return {
         mappings = {
           ["<space>"] = "none",
           ["o"] = "open", -- NOTE: to make the behavior same with neotree
+          ["<CR>"] = "open", -- NOTE: to make the behavior same with neotree
         },
       },
     },
