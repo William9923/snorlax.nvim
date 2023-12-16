@@ -2,6 +2,7 @@ local actions = require("telescope.actions")
 return {
   "nvim-telescope/telescope.nvim",
   keys = {
+    { "<space>ff", false },
     {
       ";f",
       function()
