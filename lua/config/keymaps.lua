@@ -92,3 +92,7 @@ keymap("x", "<S-j>", ":move '>+1<CR>gv-gv", opts)
 keymap("x", "<S-k>", ":move '<-2<CR>gv-gv", opts)
 
 keymap("n", "<leader>ff", "<cmd>lua vim.lsp.buf.format{ async = true }<cr>", opts)
+
+-- Autofolding
+keymap("n", "<leader>z", ":let&l:fdl=indent('.')/&sw<cr>", opts)
+keymap("x", "<leader>z", ":let&l:fdl=indent('.')/&sw<cr>", opts)
