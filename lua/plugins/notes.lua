@@ -1,7 +1,7 @@
 return {
   {
     "vimwiki/vimwiki",
-    lazy = false,
+    lazy = true,
     keys = { "<leader>ww", "<leader>wt" },
     init = function()
       vim.g.vimwiki_folding = ""

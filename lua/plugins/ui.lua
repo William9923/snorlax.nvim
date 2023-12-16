@@ -1,5 +1,6 @@
 return {
   -- messages, cmdline and the popupmenu
+
   {
     "folke/noice.nvim",
     opts = function(_, opts)
@@ -20,6 +21,7 @@ return {
             { find = "; before #%d+" },
             { find = "%d+ more lines" },
             { find = "%d+ fewer lines" },
+            { find = "%d+ lines yanked" },
           },
         },
         view = "mini",

@@ -9,15 +9,13 @@ dicipline.norepeat()
 local keymap = vim.keymap.set
 local opts = { noremap = true, silent = true }
 
+--Remap space as leader key
+keymap("", "<Space>", "<Nop>", opts)
+vim.g.mapleader = " "
+
 -- Better keybinding when searching
 keymap("n", ".", ";", opts)
 keymap("v", ".", ";", opts)
-
---Remap space as leader key
-keymap("", "<Space>", "<Nop>", opts)
--- keymap("", ";", "<Nop>", opts)
-
-vim.g.mapleader = " "
 
 -- Modes
 --   normal_mode = "n",
