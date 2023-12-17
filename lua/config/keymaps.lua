@@ -36,6 +36,13 @@ keymap("n", "<C-u>", "<C-u>zz", opts)
 keymap("n", "n", "nzzzv", opts)
 keymap("n", "N", "Nzzzv", opts)
 
+-- Auto close bracket
+keymap("i", "'", "''<left>", opts)
+keymap("i", '"', '""<left>', opts)
+keymap("i", "(", "()<left>", opts)
+keymap("i", "{", "{}<left>", opts)
+keymap("i", "[", "[]<left>", opts)
+
 -- Clear highlights
 keymap("n", "<leader>h", "<cmd>nohlsearch<CR>", opts)
 
@@ -111,3 +118,9 @@ keymap("n", "<leader>f", vim.diagnostic.open_float, opts)
 keymap("n", "]e", diagnostic_goto(true, "ERROR"), opts)
 keymap("n", "]e", diagnostic_goto(false, "ERROR"), opts)
 keymap("n", "]e", diagnostic_goto(true, "WARN"), opts)
+
+-- Vim Tmux Navigation
+keymap("n", "<C-h>", ":NvimTmuxNavigateLeft<cr>", opts)
+keymap("n", "<C-j>", ":NvimTmuxNavigateDown<cr>", opts)
+keymap("n", "<C-k>", ":NvimTmuxNavigateUp<cr>", opts)
+keymap("n", "<C-l>", ":NvimTmuxNavigateRight<cr>", opts)
