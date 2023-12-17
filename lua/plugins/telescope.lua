@@ -5,38 +5,28 @@ return {
     return {
       {
         ";f",
-        function()
-          require("telescope.builtin").find_files()
-        end,
+        ":Telescope find_files<CR>",
         desc = "Find Files",
       },
       {
         ";r",
-        function()
-          require("telescope.builtin").live_grep()
-        end,
+        ":Telescope live_grep<CR>",
         desc = "Live Grep Search",
       },
       {
         ";b",
-        function()
-          require("telescope.builtin").buffers()
-        end,
+        ":Telescope buffers<CR>",
         desc = "List Buffer",
       },
       {
         ";d",
-        function()
-          require("telescope.builtin").diagnostics()
-        end,
+        ":Telescope diagnostics<CR>",
         desc = "List Diagnostics",
       },
       {
         ";k",
-        function()
-          require("telescope.builtin").keymaps()
-        end,
-        desc = "List Diagnostics",
+        ":Telescope keymaps<CR>",
+        desc = "List Keymaps",
       },
     }
   end,

@@ -6,13 +6,36 @@ if not vim.loop.fs_stat(lazypath) then
     lazypath })
 end
 vim.opt.rtp:prepend(vim.env.LAZY or lazypath)
-
 require("lazy").setup({
   spec = {
     -- add LazyVim and import its plugins
     {
       "LazyVim/LazyVim",
       import = "lazyvim.plugins",
+      keys = function()
+        return {
+          {
+            ";l",
+            ":Lazy<CR>",
+            desc = "show lazy dashboard",
+          },
+          {
+            "<leader>l",
+            "",
+            desc = "remove keybinding for lazy dashboard",
+          },
+          {
+            "<leader>,",
+            "<cmd>bprevious<cr>",
+            desc = "Prev buffer",
+          },
+          {
+            "<leader>.",
+            "<cmd>bnext<cr>",
+            desc = "Prev buffer",
+          },
+        }
+      end,
       opts = {
         colorscheme = "gruvbox",
       },
@@ -55,9 +78,12 @@ require("lazy").setup({
   },
   ui = {
     custom_keys = {
-      ["<localleader>d"] = function(plugin)
-        dd(plugin)
-      end,
+      -- You can define custom key maps here. If present, the description will
+      -- be shown in the help menu.
+      -- To disable one of the defaults, set it to false.
+
+      ["<localleader>p"] = false,
+      ["<localleader>t"] = false,
     },
   },
   debug = false,

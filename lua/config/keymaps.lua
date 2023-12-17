@@ -2,7 +2,7 @@
 -- Default keymaps that are always set: https://github.com/LazyVim/LazyVim/blob/main/lua/lazyvim/config/keymaps.lua
 -- Add any additional keymaps here
 --
-
+local Util = require("lazyvim.util")
 local dicipline = require("personal.dicipline")
 dicipline.norepeat()
 
@@ -41,9 +41,6 @@ keymap("n", "<leader>h", "<cmd>nohlsearch<CR>", opts)
 
 -- Close buffers
 keymap("n", "<S-q>", "<cmd>Bdelete!<CR>", opts)
-
--- Better paste
--- keymap("v", "p", '"_dP', opts)
 
 -- Fast saving with Ctrl + s
 keymap("n", "<C-s>", ":w<CR>", opts)
@@ -89,8 +86,29 @@ keymap("v", "<S-k>", ":m .-2<CR>==gv", opts)
 keymap("x", "<S-j>", ":move '>+1<CR>gv-gv", opts)
 keymap("x", "<S-k>", ":move '<-2<CR>gv-gv", opts)
 
-keymap("n", "<leader>ff", "<cmd>lua vim.lsp.buf.format{ async = true }<cr>", opts)
-
 -- Autofolding
 keymap("n", "<leader>z", ":let&l:fdl=indent('.')/&sw<cr>", opts)
 keymap("x", "<leader>z", ":let&l:fdl=indent('.')/&sw<cr>", opts)
+
+-- Formatting
+keymap("n", "<leader>ff", function()
+  Util.format({ force = true })
+end, opts)
+
+keymap("v", "<leader>ff", function()
+  Util.format({ force = true })
+end, opts)
+
+-- Diagnostic
+local diagnostic_goto = function(next, severity)
+  local go = next and vim.diagnostic.goto_next or vim.diagnostic.goto_prev
+  severity = severity and vim.diagnostic.severity[severity] or nil
+  return function()
+    go({ severity = severity })
+  end
+end
+keymap("n", "<leader>cd", vim.diagnostic.open_float, opts)
+keymap("n", "]e", diagnostic_goto(true, "ERROR"), opts)
+keymap("n", "]e", diagnostic_goto(false, "ERROR"), opts)
+keymap("n", "]e", diagnostic_goto(true, "WARN"), opts)
+keymap("n", "]e", diagnostic_goto(false, "WARN"), opts)
