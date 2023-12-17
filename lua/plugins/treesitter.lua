@@ -4,6 +4,20 @@ return {
     "nvim-treesitter/nvim-treesitter",
     opts = {
       ensure_installed = {
+        -- go related syntax
+        "go",
+        "gomod",
+        "gowork",
+        "gosum",
+        -- python related syntax
+        "python",
+        "rst",
+        "toml",
+        -- terrafor related syntax
+        "terraform",
+        "hcl",
+
+        -- unrelated, but good to have
         "c",
         "cmake",
         "cpp",
@@ -11,7 +25,6 @@ return {
         "graphql",
         "java",
         "typescript",
-        "go",
         "python",
         "rust",
         "sql",
