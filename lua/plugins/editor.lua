@@ -143,4 +143,14 @@ return {
       { "[[", desc = "Prev Reference" },
     },
   },
+  {
+    "folke/todo-comments.nvim",
+    cmd = { "TodoTrouble", "TodoTelescope" },
+    event = "LazyFile",
+    config = true,
+  -- stylua: ignore
+  keys = {
+    { ";t", "<cmd>TodoTelescope keywords=TODO,FIX,FIXME<cr>", desc = "Todo/Fix/Fixme" },
+  },
+  },
 }
