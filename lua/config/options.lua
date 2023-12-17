@@ -6,6 +6,10 @@ vim.opt.encoding = "utf-8"
 vim.opt.fileencoding = "utf-8"
 vim.opt.number = true
 
+vim.g.loaded_python3_provider = 0
+vim.g.loaded_ruby_provider = 0
+vim.g.loaded_perl_provider = 0
+
 vim.opt.shell = "zsh"
 vim.opt.breakindent = true
 vim.opt.backspace = { "start", "eol", "indent" }
