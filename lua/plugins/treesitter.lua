@@ -23,7 +23,6 @@ return {
         "cpp",
         "gitignore",
         "graphql",
-        "java",
         "typescript",
         "python",
         "rust",
