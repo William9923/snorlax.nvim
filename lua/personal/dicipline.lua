@@ -4,7 +4,7 @@ function M.norepeat()
   ---@type table?
   local id
   local ok = true
-  for _, key in ipairs({ "h", "l", "+", "-" }) do -- focus more on horizontal in line repeat
+  for _, key in ipairs({ "j", "k", "h", "l", "+", "-" }) do -- focus more on horizontal in line repeat
     local count = 0
     local timer = assert(vim.loop.new_timer())
     local map = key
@@ -12,12 +12,12 @@ function M.norepeat()
       if vim.v.count > 0 then
         count = 0
       end
-      if count >= 10 then
+      if count >= 20 then
         ok, id = pcall(vim.notify, "Hold it! Don't Repeat!", vim.log.levels.WARN, {
           icon = "😡",
           replace = id,
           keep = function()
-            return count >= 10
+            return count >= 20
           end,
         })
         if not ok then
@@ -26,7 +26,7 @@ function M.norepeat()
         end
       else
         count = count + 1
-        timer:start(2000, 0, function()
+        timer:start(1500, 0, function()
           count = 0
         end)
         return map
