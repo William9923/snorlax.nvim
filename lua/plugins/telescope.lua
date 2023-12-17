@@ -2,7 +2,7 @@ local actions = require("telescope.actions")
 return {
   {
     "nvim-telescope/telescope.nvim",
-    lazy = true,
+    lazy = false,
     keys = function()
       return {
         {

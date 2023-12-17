@@ -16,6 +16,9 @@ return {
         -- terrafor related syntax
         "terraform",
         "hcl",
+        -- for noice.nvim
+        "regex",
+        "markdown_inline",
 
         -- unrelated, but good to have
         "c",
