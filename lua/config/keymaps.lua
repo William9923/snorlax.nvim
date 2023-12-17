@@ -106,18 +106,7 @@ keymap("v", "<leader>ff", function()
   Util.format({ force = true })
 end, opts)
 
--- Diagnostic
-local diagnostic_goto = function(next, severity)
-  local go = next and vim.diagnostic.goto_next or vim.diagnostic.goto_prev
-  severity = severity and vim.diagnostic.severity[severity] or nil
-  return function()
-    go({ severity = severity })
-  end
-end
 keymap("n", "<leader>f", vim.diagnostic.open_float, opts)
-keymap("n", "]e", diagnostic_goto(true, "ERROR"), opts)
-keymap("n", "]e", diagnostic_goto(false, "ERROR"), opts)
-keymap("n", "]e", diagnostic_goto(true, "WARN"), opts)
 
 -- Vim Tmux Navigation
 keymap("n", "<C-h>", ":NvimTmuxNavigateLeft<cr>", opts)
