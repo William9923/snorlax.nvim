@@ -53,8 +53,9 @@ vim.opt.whichwrap:append("<,>,[,],h,l") -- keys allowed to move to the previous/
 vim.opt.iskeyword:append("-") -- treats words with `-` as single words
 
 -- Neovim folding config...
-vim.opt.foldmethod = "syntax"
-vim.opt.foldlevel = 3
+vim.opt.foldlevel = 2
+vim.opt.foldmethod = "expr"
+vim.opt.foldexpr = "nvim_treesitter#foldexpr()"
 
 -- Neovim search
 vim.opt.path:append({ "**" }) -- Finding files - Search down into subfolders
