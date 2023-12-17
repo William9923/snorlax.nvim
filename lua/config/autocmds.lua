@@ -10,3 +10,16 @@ vim.api.nvim_create_autocmd("FileType", {
     vim.opt.conceallevel = 0
   end,
 })
+
+vim.api.nvim_create_autocmd({ "VimEnter" }, {
+  callback = function()
+    vim.cmd("hi link illuminatedWord LspReferenceText")
+  end,
+})
+
+vim.api.nvim_create_autocmd({ "BufEnter" }, {
+  callback = function()
+    vim.cmd("hi LineNrAbove guifg=red ctermfg=red")
+    vim.cmd("hi LineNrBelow guifg=cyan ctermfg=cyan")
+  end,
+})
