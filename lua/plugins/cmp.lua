@@ -96,11 +96,17 @@ return {
         return true -- NOTE: by default, we should always apply auto-completion
       end
 
+      -- Disable autocomplete on prompt
+      if vim.api.nvim_buf_get_option(0, "buftype") == "prompt" then
+        return false
+      end
+
       -- Disable vimwiki filetype
       if vim.bo.filetype == "vimwiki" then
         return false
       end
 
+      -- Disable autocomplete on comments
       if vim.api.nvim_get_mode().mode == "c" then
         return true
       else
