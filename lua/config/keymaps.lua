@@ -107,8 +107,7 @@ local diagnostic_goto = function(next, severity)
     go({ severity = severity })
   end
 end
-keymap("n", "<leader>cd", vim.diagnostic.open_float, opts)
+keymap("n", "<leader>f", vim.diagnostic.open_float, opts)
 keymap("n", "]e", diagnostic_goto(true, "ERROR"), opts)
 keymap("n", "]e", diagnostic_goto(false, "ERROR"), opts)
 keymap("n", "]e", diagnostic_goto(true, "WARN"), opts)
-keymap("n", "]e", diagnostic_goto(false, "WARN"), opts)
