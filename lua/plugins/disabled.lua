@@ -6,7 +6,7 @@ return {
   { "ggandor/leap.nvim", enabled = false },
   { "folke/flash.nvim", enabled = false },
   { "folke/noice.nvim", enabled = false },
-  { "rcarriga/nvim-notify", enabled = false },
+  { "mfussenegger/nvim-lint", enabled = false },
   {
     "rafamadriz/friendly-snippets",
     enabled = false,
@@ -17,10 +17,6 @@ return {
   { "catppuccin/nvim", enabled = false },
   { "nvim-telescope/telescope-fzf-native.nvim", enabled = false },
   { "echasnovski/mini.bufremove", enabled = false },
-  {
-    "echasnovski/mini.bufremove",
-    enabled = false,
-  },
   {
     "LazyVim/LazyVim",
     opts = {
