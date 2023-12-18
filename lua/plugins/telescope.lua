@@ -34,11 +34,22 @@ return {
     end,
     opts = {
       defaults = {
+        preview = {
+          treesitter = false,
+        },
         theme = "ivy",
         prompt_prefix = "  ",
         selection_caret = " ",
         path_display = { "smart" },
-        file_ignore_patterns = { ".git/", "node_modules", "vendor" },
+        file_ignore_patterns = {
+          -- General purposes
+          ".git/",
+          "node_modules",
+          "vendor",
+
+          -- Big files in work related...
+          "statik.go",
+        },
         layout_strategy = "horizontal",
         layout_config = { prompt_position = "bottom" },
         sorting_strategy = "descending",
