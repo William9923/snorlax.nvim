@@ -42,6 +42,8 @@ keymap("i", '"', '""<left>', opts)
 keymap("i", "(", "()<left>", opts)
 keymap("i", "{", "{}<left>", opts)
 keymap("i", "[", "[]<left>", opts)
+keymap("i", "<", "<><left>", opts)
+keymap("i", "`", "``<left>", opts)
 
 -- Clear highlights
 keymap("n", "<leader>h", "<cmd>nohlsearch<CR>", opts)
