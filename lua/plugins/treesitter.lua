@@ -21,27 +21,22 @@ return {
         "markdown_inline",
 
         -- unrelated, but good to have
-        "c",
-        "cmake",
-        "cpp",
         "gitignore",
-        "graphql",
         "typescript",
-        "python",
         "rust",
         "sql",
         "html",
         "css",
-        "scss",
         "javascript",
         "json",
+        "tsx",
         "toml",
         "markdown",
         "bash",
+
         "lua",
         "vim",
         "dockerfile",
-        "tsx",
       },
 
       query_linter = {

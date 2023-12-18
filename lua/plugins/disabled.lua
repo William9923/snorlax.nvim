@@ -6,6 +6,9 @@ return {
   { "ggandor/leap.nvim", enabled = false },
   { "folke/flash.nvim", enabled = false },
   { "mfussenegger/nvim-lint", enabled = false },
+  { "nvim-pack/nvim-spectre", enabled = false },
+  { "folke/trouble.nvim", enabled = false },
+  { "stevearc/aerial.nvim", enabled = false },
   {
     "rafamadriz/friendly-snippets",
     enabled = false,
