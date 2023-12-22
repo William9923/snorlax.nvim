@@ -148,9 +148,23 @@ return {
     cmd = { "TodoTrouble", "TodoTelescope" },
     event = "LazyFile",
     config = true,
-  -- stylua: ignore
-  keys = {
-    { ";t", "<cmd>TodoTelescope keywords=TODO,FIX,FIXME<cr>", desc = "Todo/Fix/Fixme" },
+    keys = {
+      { ";t", "<cmd>TodoTelescope keywords=TODO,FIX,FIXME<cr>", desc = "Todo/Fix/Fixme" },
+    },
   },
+  {
+    "lewis6991/gitsigns.nvim",
+    event = "LazyFile",
+    opts = {
+      current_line_blame = true, -- Toggle with `:Gitsigns toggle_current_line_blame`
+      current_line_blame_opts = {
+        virt_text = true,
+        virt_text_pos = "right_align", -- 'eol' | 'overlay' | 'right_align'
+        delay = 50,
+        ignore_whitespace = false,
+        virt_text_priority = 5000,
+      },
+      current_line_blame_formatter = "<author> • <author_time:%Y-%m-%d> • <summary>",
+    },
   },
 }
