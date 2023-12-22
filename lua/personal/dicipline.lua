@@ -14,7 +14,7 @@ function M.norepeat()
       end
       if count >= 20 then
         ok, id = pcall(vim.notify, "Hold it! Don't Repeat!", vim.log.levels.WARN, {
-          icon = "😡",
+          icon = "•`_´•",
           replace = id,
           keep = function()
             return count >= 20
