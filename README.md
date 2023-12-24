@@ -84,17 +84,13 @@
 </p>
 
 <p align="center">
-  <p><strong>Formatting (conform.nvim)</strong></p>
-  <video width="320" height="240" controls>
-    <source src="docs/format-file.mov" type="video/mp4">
-    Your browser does not support the video tag.
-  </video> 
-</p>
-
-<p align="center">
   <p><strong>TODO</strong></p>
   <img src="docs/todo.png" />
 </p>
+
+Earth Heightmap node:
+
+https://user-images.githubusercontent.com/6877923/123006036-64e2e780-d3b7-11eb-922e-018994b32da5.mov
 
 ### Quick Start
 
