@@ -46,8 +46,6 @@
 
 ## Getting Started
 
-### Features
-
 <div align="center">
   <p><strong>Your editor, your style</strong></p>
   <p>With easier customization and better maintenance (via community effort)</p>
@@ -67,7 +65,6 @@
   <p><strong>Telescope (file finder)</strong></p>
   <img src="docs/file-finder.png" />
 </p>
-
 
 <p align="center">
   <p><strong>Telescope (live finder)</strong></p>
@@ -106,79 +103,65 @@ https://github.com/William9923/snorlax.nvim/assets/45505811/bbfdca79-d616-4048-a
 
 https://github.com/William9923/snorlax.nvim/assets/45505811/0c63cf15-7841-4202-ba9f-6b78ef8906a9
 
+## Installation
 
-### Quick Start
-
-Open `nvim` and enter the following:
-
-```
-:checkhealth
-```
-
-You'll probably notice you don't have support for copy/paste also that python and node haven't been setup
-
-So let's fix that
-
-First we'll fix copy/paste
-
-- On mac `pbcopy` should be builtin
-
-- On Ubuntu
-
-  ```sh
-  sudo apt install xsel # for X11
-  sudo apt install wl-clipboard # for wayland
-  ```
-
-Next we need to install python support (node is optional)
-
-- Neovim python support
-
-  ```sh
-  pip install pynvim
-  ```
-
-- Neovim node support
-
-  ```sh
-  npm i -g neovim
-  ```
-
-We will also need `ripgrep` for Telescope to work:
-
-- Ripgrep
-
-  ```sh
-  sudo apt install ripgrep
-  ```
-
-Tree-sitter setup
+<details><summary>Try it with Docker</summary>
 
 ```sh
-:TSInstall all
+docker run -w /root -it --rm alpine:edge sh -uelic '
+  apk add git lazygit neovim ripgrep alpine-sdk --update
+  git clone https://github.com/William9923/snorlax.nvim ~/.config/nvim
+  cd ~/.config/nvim
+  nvim
+'
 ```
 
-## Fonts
+</details>
 
-I personally like Jetbrains Mono Nerd Font, but the font is not defined in the neovim setting. You should configure it in your terminal settings.
+<details><summary>Install the snorlax.nvim, inspired by <a href="https://github.com/LazyVim/starter">LazyVim Starter</a></summary>
 
-## Configuration
+- Make a backup of your current Neovim files:
 
-### Formatters and linters
+  ```sh
+  mv ~/.config/nvim ~/.config/nvim.bak
+  mv ~/.local/share/nvim ~/.local/share/nvim.bak
+  ```
 
-In this neovim configuration, I provided some of the formatters and linters that I personally use:
+- Clone the configs
 
-- Prettier : for javascript and typescript
-- Black : for Python
-- Stylua : for Lua script
-- Goimports : for Golang
-- Shfmt : for shell scripts
+  ```sh
+  git clone https://github.com/william9923/snorlax.nvim ~/.config/nvim
+  ```
 
-You can configure new formatters and linters easily in `lua/user/lsp`
+- Remove the `.git` folder, so you can add it to your own repo later
 
-## Thanks to...
+  ```sh
+  rm -rf ~/.config/nvim/.git
+  ```
 
-- [LunarVim](https://github.com/LunarVim/nvim-basic-ide)
+- Start Neovim! (initial open take quite some times, as it need to download necessary tools & plugins)
+
+  ```sh
+  nvim
+  ```
+
+  Feel free to customize the nvim configs.
+
+</details>
+
+## Keymaps
+
+Work in progress...
+
+## Recipes
+
+Work in progress...
+
+For other related to LazyVim, please refer to LazyVim [recipes](https://www.lazyvim.org/configuration/recipes) page
+
+## Special thanks to...
+
+- [LazyVim](https://github.com/LazyVim/LazyVim)
 
 ## ❤️ Support
 
