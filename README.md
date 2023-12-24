@@ -28,7 +28,17 @@
     </a>
 </p></div>
 
-<p >Snorlax.nvim is a neovim setup customization from <a href="https://github.com/LazyVim/LazyVim">lazyvim</a> for easier customization and better config maintenance. Designed with same workflow as <a href="https://github.com/William9923/gyarados.nvim">gyarados.nvim</a> as my previous neovim configuration, but with better maintainability from with a lot of pre-configured package and setup by lazyvim (maintained by the community).</p>
+<p>Snorlax.nvim is a neovim setup customization from <a href="https://github.com/LazyVim/LazyVim">lazyvim</a> for easier customization and better config maintenance. Designed with same workflow as <a href="https://github.com/William9923/gyarados.nvim">gyarados.nvim</a> as my previous neovim configuration, but with better maintainability from with a lot of pre-configured package and setup by lazyvim (maintained by the community).</p>
+
+<p>Few goals that I want to achieve with this neovim configs as the successor of previous <a href="https://github.com/William9923/gyarados.nvim">gyarados.nvim</a> config</p>
+<ul>
+  <li>Remove unnecessary time to maintain plugins update.</li>
+  <li>Null ls had not been maintained anymore (there still exist community driven null ls)</li>
+  <li>LspSaga had a lot of breaking changes entering neovim v0.9</li>
+  <li>Use the support from community maintained plugins (too much error from broken change in plugins that I use, got too annoying at this point)</li>
+  <li>Want to allocate time more on expanding plugins functionality instead of maintaining current configs (there are a lot of frequent breaking changes when maintaining alone)</li>
+  <li>Utilize DAP & Neotest support</li>
+</ul>
 
 <p align="center">
     <img src="docs/welcome-page.png"/>
@@ -39,14 +49,14 @@
 ### Features
 
 <div align="center">
-  <p><strong>Your editor. Your style.</strong></p>
-  <p>The unified editor preference provide a clutter-free and fluidly coding experience.</p>
+  <p><strong>Your customized editors, with plugins maintained by community</strong></p>
+  <p>Because maintaining pluginsThe unified editor preference provide a clutter-free and fluidly coding experience.</p>
 </div>
 
 <p align="center">
   <p><strong>Syntax Highlighting</strong></p>
   <img src="docs/treesitter.png" />
-</p>
+</ul>
 
 <p align="center">
   <p><strong>Language Server (Definition, Reference, etc...)</strong></p>
