@@ -68,6 +68,12 @@
   <img src="docs/file-finder.png" />
 </p>
 
+
+<p align="center">
+  <p><strong>Telescope (live finder)</strong></p>
+  <img src="docs/live-search.png" />
+</p>
+
 <p align="center">
   <p><strong>Workspace diagnostic</strong></p>
   <img src="docs/workspace-diagnostic.png" />
@@ -88,9 +94,18 @@
   <img src="docs/todo.png" />
 </p>
 
-Earth Heightmap node:
+**File Format:**
 
-https://user-images.githubusercontent.com/6877923/123006036-64e2e780-d3b7-11eb-922e-018994b32da5.mov
+https://github.com/William9923/snorlax.nvim/assets/45505811/7250b014-6525-492b-b7fb-c3424eda88da
+
+**Tmux Navigation:**
+
+https://github.com/William9923/snorlax.nvim/assets/45505811/bbfdca79-d616-4048-af95-33e44d7a42da
+
+**Non-repeat key Training (cowboy.nvim inspired):**
+
+https://github.com/William9923/snorlax.nvim/assets/45505811/0c63cf15-7841-4202-ba9f-6b78ef8906a9
+
 
 ### Quick Start
 
