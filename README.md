@@ -28,12 +28,10 @@
     </a>
 </p></div>
 
-<p align="center">Snorlax.nvim is a neovim setup customization from <a href="https://github.com/LazyVim/LazyVim">lazyvim</a> for easier customization and better config maintenance.</p>
-
-<p align="center">Designed with same workflow as <a href="https://github.com/William9923/gyarados.nvim">gyarados.nvim</a> as my previous neovim configuration, but with better maintainability from with a lot of pre-configured setup by lazyvim</p>
+<p >Snorlax.nvim is a neovim setup customization from <a href="https://github.com/LazyVim/LazyVim">lazyvim</a> for easier customization and better config maintenance. Designed with same workflow as <a href="https://github.com/William9923/gyarados.nvim">gyarados.nvim</a> as my previous neovim configuration, but with better maintainability from with a lot of pre-configured package and setup by lazyvim (maintained by the community).</p>
 
 <p align="center">
-    <img src="docs/nvim-file-dashboard.png"/>
+    <img src="docs/welcome-page.png"/>
 </p>
 
 ## Getting Started
