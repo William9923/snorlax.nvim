@@ -85,7 +85,7 @@
 
 <p align="center">
   <p><strong>Formatting (conform.nvim)</strong></p>
-  <video controls>
+  <video width="320" height="240" controls>
     <source src="docs/format-file.mov" type="video/mp4">
     Your browser does not support the video tag.
   </video> 
