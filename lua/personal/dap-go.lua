@@ -175,7 +175,7 @@ local function debug_test(testname, testpath, build_flags)
     request = "launch",
     mode = "test",
     program = testpath,
-    args = { "-test.run", "^" .. testname .. "$" },
+    args = { "run", "^" .. testname .. "$" },
     buildFlags = build_flags,
   })
 end
