@@ -1,4 +1,3 @@
-local Util = require("lazyvim.util")
 return {
   "stevearc/conform.nvim",
   dependencies = { "mason.nvim" },
@@ -10,14 +9,13 @@ return {
     ---@type table<string, conform.FormatterUnit[]>
     formatters_by_ft = {
       lua = { "stylua" },
-      fish = { "fish_indent" },
       sh = { "shfmt" },
-      -- Conform will run multiple formatters sequentially
+      -- NOTE: Conform will run multiple formatters sequentially
       python = { "black", "isort" },
-      -- Use a sub-list to run only the first available formatter
+      -- NOTE: Use a sub-list to run only the first available formatter
       javascript = { { "prettierd", "prettier" } },
       rust = { "rustfmt" },
-      go = { { "goimports", "gofmt" } },
+      go = { { "gofmt", "goimports" } },
       sql = { "pg_format", "sql_formatter" },
       yaml = { "yamlfmt" },
     },

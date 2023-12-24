@@ -28,15 +28,15 @@
     </a>
 </p></div>
 
-<p>Snorlax.nvim is a neovim setup customization from <a href="https://github.com/LazyVim/LazyVim">lazyvim</a> for easier customization and better config maintenance. Designed with same workflow as <a href="https://github.com/William9923/gyarados.nvim">gyarados.nvim</a> as my previous neovim configuration, but with better maintainability from with a lot of pre-configured package and setup by lazyvim (maintained by the community).</p>
+<p>Snorlax.nvim is a neovim setup customization from <a href="https://github.com/LazyVim/LazyVim">lazyvim</a> for easier customization and better config maintenance. Designed with same workflow as <a href="https://github.com/William9923/gyarados.nvim">gyarados.nvim</a> (my previous neovim configuration), but with better maintainability from with a lot of pre-configured package and setup by lazyvim (maintained by the community).</p>
 
-<p>Few goals that I want to achieve with this neovim configs as the successor of previous <a href="https://github.com/William9923/gyarados.nvim">gyarados.nvim</a> config</p>
+<p>This config is made with few goals in mind as the successor of previous <a href="https://github.com/William9923/gyarados.nvim">gyarados.nvim</a> config</p>
 <ul>
-  <li>Remove unnecessary time to maintain plugins update.</li>
-  <li>Null ls had not been maintained anymore (there still exist community driven null ls)</li>
-  <li>LspSaga had a lot of breaking changes entering neovim v0.9</li>
+  <li>Remove unnecessary time to fix / maintain plugins update.</li>
+  <li>Replace null ls as it had not been maintained anymore (there still exist community driven null ls)</li>
+  <li>Replace lspSaga had a lot of breaking changes entering neovim v0.9</li>
   <li>Use the support from community maintained plugins (too much error from broken change in plugins that I use, got too annoying at this point)</li>
-  <li>Want to allocate time more on expanding plugins functionality instead of maintaining current configs (there are a lot of frequent breaking changes when maintaining alone)</li>
+  <li>Allocate time more on expanding plugins functionality instead of maintaining current configs (there are a lot of frequent breaking changes when maintaining alone)</li>
   <li>Utilize DAP & Neotest support</li>
 </ul>
 
@@ -49,8 +49,8 @@
 ### Features
 
 <div align="center">
-  <p><strong>Your customized editors, with plugins maintained by community</strong></p>
-  <p>Because maintaining pluginsThe unified editor preference provide a clutter-free and fluidly coding experience.</p>
+  <p><strong>Your editor, your style</strong></p>
+  <p>With easier customization and better maintenance (via community effort)</p>
 </div>
 
 <p align="center">
@@ -60,32 +60,40 @@
 
 <p align="center">
   <p><strong>Language Server (Definition, Reference, etc...)</strong></p>
-  <img src="docs/lspsaga.png" />
+  <img src="docs/lsp-reference.png" />
 </p>
 
 <p align="center">
   <p><strong>Telescope (file finder)</strong></p>
-  <img src="docs/telescope.png" />
+  <img src="docs/file-finder.png" />
 </p>
 
 <p align="center">
   <p><strong>Workspace diagnostic</strong></p>
-  <img src="docs/diagnostic.png" />
+  <img src="docs/workspace-diagnostic.png" />
 </p>
 
 <p align="center">
   <p><strong>File Tree viewer</strong></p>
-  <img src="docs/tree-viewer.png" />
+  <img src="docs/file-tree.png" />
 </p>
 
 <p align="center">
   <p><strong>Symbol Outline</strong></p>
-  <img src="docs/outline.png" />
+  <img src="docs/symbol-outline.png" />
+</p>
+
+<p align="center">
+  <p><strong>Formatting (conform.nvim)</strong></p>
+  <video controls>
+    <source src="docs/format-file.mov" type="video/mp4">
+    Your browser does not support the video tag.
+  </video> 
 </p>
 
 <p align="center">
   <p><strong>TODO</strong></p>
-  <img src="docs/Todo.png" />
+  <img src="docs/todo.png" />
 </p>
 
 ### Quick Start
