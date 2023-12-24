@@ -23,7 +23,6 @@
     <a href="https://github.com/ellisonleao/gruvbox.nvim">
      <img alt="Colorscheme"
      src="https://img.shields.io/badge/color-gruvbox-brown?style=for-the-badge" />
-
     </a>
     <img alt="Git" src="https://img.shields.io/badge/git-lazygit-pink?style=for-the-badge&logo=git" />
     <img alt="Workflow Manager" src="https://img.shields.io/badge/multiplexer-tmux-1BB91F?style=for-the-badge&logo=tmux" />
@@ -81,7 +80,6 @@
   <img src="docs/Todo.png" />
 </p>
 
-
 ### Quick Start
 
 Open `nvim` and enter the following:
@@ -126,12 +124,13 @@ We will also need `ripgrep` for Telescope to work:
   ```sh
   sudo apt install ripgrep
   ```
-  
+
 Tree-sitter setup
-  ```sh 
-  :TSInstall all
-  ```
-  
+
+```sh
+:TSInstall all
+```
+
 ## Fonts
 
 I personally like Jetbrains Mono Nerd Font, but the font is not defined in the neovim setting. You should configure it in your terminal settings.
