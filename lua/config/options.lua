@@ -64,6 +64,10 @@ vim.opt.path:append({ "**" }) -- Finding files - Search down into subfolders
 vim.opt.wildignore:append({ "*/node_modules/*" }) -- Node js, javascript
 vim.opt.wildignore:append({ "*/vendor/*" }) -- Go
 
+-- Cursor
+vim.opt.cursorline = true
+vim.opt.guicursor = "n-v-c-sm:block,i-ci-ve:ver75-Cursor,r-cr-o:hor20-Cursor"
+
 -- Folding options
 vim.cmd([[
   augroup remember_folds
