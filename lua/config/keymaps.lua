@@ -68,6 +68,9 @@ keymap("n", "-", "<C-x>", opts)
 keymap("n", "d", '"_d', opts)
 keymap("n", "x", '"_x', opts)
 
+-- Better paste (without removing from register)
+-- keymap("n", "p", '"_p', opts)
+
 -- Open current directories + File
 keymap("n", "te", ":tabedit<CR>", opts) -- new tab
 
@@ -107,8 +110,6 @@ end, opts)
 keymap("v", "<leader>ff", function()
   Util.format({ force = true })
 end, opts)
-
-keymap("n", "<leader>f", vim.diagnostic.open_float, opts)
 
 -- Vim Tmux Navigation
 keymap("n", "<C-h>", ":NvimTmuxNavigateLeft<cr>", opts)

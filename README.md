@@ -151,11 +151,80 @@ docker run -w /root -it --rm alpine:edge sh -uelic '
 
 ## Keymaps
 
-Work in progress...
+Most of **snorlax.nvim** keymaps use original [lazyvim](https://www.lazyvim.org) keymaps which can be referred [here](https://www.lazyvim.org/keymaps)
+
+- `<leader>` is `<space>`
+
+Some customization is done by myself to suite my personal usage. Feel free to adjust based on your need (file location provided).
+
+| Key          | Description                      | Location (File)         |
+| :----------- | :------------------------------- | :---------------------- |
+| `<leader>ss` | **Split window below**           | `config/keymaps.lua`    |
+| `<leader>ff` | **Format Document**              | `config/keymaps.lua`    |
+| `;l`         | **Show Lazy UI**                 | `config/lazy.lua`       |
+| `;f`         | **Telescope find files**         | `plugins/telescope.lua` |
+| `;r`         | **Telescope live grep (search)** | `plugins/telescope.lua` |
+| `;b`         | **Telescope find buffers**       | `plugins/telescope.lua` |
+| `;d`         | **Telescope show diagnostics**   | `plugins/telescope.lua` |
+| `;k`         | **Telescope show keymaps**       | `plugins/telescope.lua` |
+| `;t`         | **Show TODO**                    | `plugins/editor.lua`    |
+| `<leader>sv` | **Split window right**           | `config/keymaps.lua`    |
+| `<leader>sq` | **Close current split window**   | `config/keymaps.lua`    |
+| `gh`         | **Lsp Reference**                | `plugins/lsp.lua`       |
+| `<leader>lr` | **Symbol Rename**                | `plugins/lsp.lua`       |
+| `<leader>la` | **Show Code Action**             | `plugins/lsp.lua`       |
+| `[[`         | **Prev Reference**               | `plugins/editor.lua`    |
+| `]]`         | **Next Reference**               | `plugins/editor.lua`    |
+| `<leader>z`  | **Toggle code folding**          | `config/keymaps.lua`    |
+| `<leader>,`  | **Prev buffer**                  | `config/lazy.lua`       |
+| `<leader>.`  | **Next buffer**                  | `config/lazy.lua`       |
+| `<leader>.`  | **Next buffer**                  | `config/lazy.lua`       |
+| `<leader>a`  | **Toggle Symbol Outline**        | `plugins/coding.lua`    |
+| `<leader>/`  | **Comment Code**                 | `plugins/comments.lua`  |
+| `<leader>td` | **DAP Test Debug**               | `plugins/lsp.lua`       |
+| `<leader>ww` | **Vimwiki**                      | `plugins/notes.lua`     |
 
 ## Recipes
 
-Work in progress...
+[Lazyvim](https://www.lazyvim.org) provide some good example [recipes](https://www.lazyvim.org/configuration/recipes) to extend the editor. Here are some my personal recipes on top of it to further extend **snorlax.nvim** capabilities (in progress...)
+
+### Add DAP Go debug launch configuration
+
+(TODO)
+
+### Add Cursor Animation
+
+(TODO)
+
+### Customize Greeter Prompt Screen
+
+(TODO)
+
+### Change Editor Color
+
+#### Line Number
+
+(TODO)
+
+#### File Name Previewer
+
+(TODO)
+
+### Filter Notifications from vim-notify
+
+(TODO)
+
+### Add formatter for certain filetypes
+
+(TODO)
+
+### Change git blame virtual text format
+
+(TODO)
+
+### Change git blame virtual text format
+
+(TODO)
 
 For other related to LazyVim, please refer to LazyVim [recipes](https://www.lazyvim.org/configuration/recipes) page
 
