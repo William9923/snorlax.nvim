@@ -190,41 +190,334 @@ Some customization is done by myself to suite my personal usage. Feel free to ad
 
 ### Add DAP Go debug launch configuration
 
-(TODO)
+- In `~/.config/nvim/lua/personal/dap-go.lua` => can find and adjust the lua function of `setup_go_configuration`. It's similar to VScode Debug configuration.
+
+```lua
+local function setup_go_configuration(dap, configs)
+  dap.configurations.go = {
+    {
+      type = "go",
+      name = "Debug",
+      request = "launch",
+      program = "${file}",
+      buildFlags = configs.delve.build_flags,
+    },
+    {
+      type = "go",
+      name = "Debug (Arguments)",
+      request = "launch",
+      program = "${file}",
+      args = get_arguments,
+      buildFlags = configs.delve.build_flags,
+    },
+    {
+      type = "go",
+      name = "Debug Package",
+      request = "launch",
+      program = "${fileDirname}",
+      buildFlags = configs.delve.build_flags,
+    },
+    {
+      type = "go",
+      name = "Attach",
+      mode = "local",
+      request = "attach",
+      processId = filtered_pick_process,
+      buildFlags = configs.delve.build_flags,
+    },
+    {
+      type = "go",
+      name = "Debug test",
+      request = "launch",
+      mode = "test",
+      program = "${file}",
+      buildFlags = configs.delve.build_flags,
+    },
+    {
+      type = "go",
+      name = "Debug test (go.mod)",
+      request = "launch",
+      mode = "test",
+      program = "./${relativeFileDirname}",
+      buildFlags = configs.delve.build_flags,
+    },
+    -- TODO: please add your debug configuration here...
+  }
+
+  if configs == nil or configs.dap_configurations == nil then
+    return
+  end
+
+  for _, config in ipairs(configs.dap_configurations) do
+    if config.type == "go" then
+      table.insert(dap.configurations.go, config)
+    end
+  end
+end
+```
+
+![Dap-Example](./docs/dap-go-sample.png)
 
 ### Add Cursor Animation
 
-(TODO)
+- In `~/.config/nvim/lua/plugins/ui.lua`.
+
+Please add this mini.ai animation plugins.
+
+```lua
+  {
+    "echasnovski/mini.animate",
+    event = "VeryLazy",
+    opts = function(_, opts)
+      local animate = require("mini.animate")
+      opts.scroll = {
+        enable = false,
+      }
+      opts.resize = {
+        enable = false,
+      }
+      opts.open = {
+        enable = false,
+      }
+      opts.close = {
+        enable = false,
+      }
+      opts.cursor = {
+        timing = animate.gen_timing.linear({ duration = 150, unit = "total" }), -- adjust the duration of how the cursor travel (in ms)
+      }
+    end,
+  },
+```
 
 ### Customize Greeter Prompt Screen
 
-(TODO)
+- In `~/.config/nvim/lua/plugins/ui.lua`.
+
+Please find `nvimdev/dashboard-nvim` plugins and modified it.
+
+```lua
+{
+    "nvimdev/dashboard-nvim",
+    event = "VimEnter",
+    opts = function(_, opts)
+      -- NOTE: change the greeter logo here (utilize lua array)
+      local logo = [[
+      ██╗     ██╗███╗   ██╗██╗   ██╗██╗  ██╗██╗  ██╗███████╗██╗     ██╗
+      ██║     ██║████╗  ██║██║   ██║╚██╗██╔╝██║  ██║██╔════╝██║     ██║
+      ██║     ██║██╔██╗ ██║██║   ██║ ╚███╔╝ ███████║█████╗  ██║     ██║
+      ██║     ██║██║╚██╗██║██║   ██║ ██╔██╗ ██╔══██║██╔══╝  ██║     ██║
+          ███████╗██║██║ ╚████║╚██████╔╝██╔╝ ██╗██║  ██║███████╗███████╗███████╗
+          ╚══════╝╚═╝╚═╝  ╚═══╝ ╚═════╝ ╚═╝  ╚═╝╚═╝  ╚═╝╚══════╝╚══════╝╚══════╝
+        by: William Ong
+      ]]
+
+      logo = string.rep("\n", 8) .. logo .. "\n\n"
+      opts.config.header = vim.split(logo, "\n")
+      -- NOTE: change window greeter footer
+      local footer = function()
+        local stats = require("lazy").stats()
+        return {
+          "⚡ Neovim loaded " .. stats.loaded .. "/" .. stats.count .. " plugins",
+        }
+      end
+      opts.config.footer = footer()
+      opts.config.center = {
+        -- NOTE: change which action for the window greeter
+        { action = "Telescope find_files", desc = " Find file", icon = " ", key = "f" },
+        { action = 'lua require("persistence").load()', desc = " Restore Session", icon = " ", key = "s" },
+        { action = "Lazy", desc = " Lazy", icon = "󰒲 ", key = "l" },
+        { action = "qa", desc = " Quit", icon = " ", key = "q" },
+      }
+    end,
+  }
+```
 
 ### Change Editor Color
 
 #### Line Number
 
-(TODO)
+- In `~/.config/nvim/lua/config/autocmds.lua`.
+
+For the line number, we differentiate the color using autocommands.
+
+```lua
+vim.api.nvim_create_autocmd({ "BufEnter" }, {
+  callback = function()
+    vim.cmd("hi LineNrAbove guifg=red ctermfg=red") -- NOTE: line number above current cursor is red. Please use vim color reference for more color.
+    vim.cmd("hi LineNrBelow guifg=cyan ctermfg=cyan") -- NOTE: line number below current cursor is cyan. Please use vim color reference for more color.
+  end,
+})
+```
+
+![Line Number](./docs/line-number.png)
 
 #### File Name Previewer
 
-(TODO)
+- In `~/.config/nvim/lua/plugins/ui.lua`.
+
+For the file name previewer, we use `b0o/incline.nvim` plugins.
+
+```lua
+  -- buffer filename
+  {
+    "b0o/incline.nvim",
+    event = "BufReadPre",
+    priority = 1200,
+    config = function()
+      require("incline").setup({
+        highlight = {
+          groups = {
+            InclineNormal = { guibg = "cyan", guifg = "black" }, -- color when in buffer
+            InclineNormalNC = { guifg = "magenta", guibg = "black" }, -- color when not in buffer
+          },
+        },
+        window = { margin = { vertical = 0, horizontal = 1 } },
+        hide = {
+          cursorline = true,
+        },
+        render = function(props)
+          local filename = vim.fn.fnamemodify(vim.api.nvim_buf_get_name(props.buf), ":t")
+          if vim.bo[props.buf].modified then
+            filename = "[+] " .. filename -- NeoTree symbol when file modified
+          end
+
+          local icon, color = require("nvim-web-devicons").get_icon_color(filename)
+          return { { icon, guifg = color }, { " " }, { filename } }
+        end,
+      })
+    end,
+  },
+```
 
 ### Filter Notifications from vim-notify
 
-(TODO)
+- In `~/.config/nvim/lua/plugins/ui.lua`.
+
+As `lazyvim` use noice, for some people the number of messages that pop out might be annoying. Feel free to add any template to filter on the lua table.
+
+```lua
+  {
+    "folke/noice.nvim",
+    opts = function(_, opts)
+      table.insert(opts.routes, {
+        filter = {
+          event = "notify",
+          find = "No information available",
+        },
+        opts = { skip = true },
+      })
+      table.insert(opts.routes, {
+        filter = {
+          event = "msg_show",
+          -- NOTE: add any not important / annoying message here
+          any = {
+            { find = "%d+L, %d+B" },
+            { find = "; after #%d+" },
+            { find = "; before #%d+" },
+            { find = "%d+ more lines" },
+            { find = "%d+ fewer lines" },
+            { find = "%d+ lines yanked" },
+          },
+        },
+        view = "mini",
+        opts = { skip = true },
+      })
+      local focused = true
+      vim.api.nvim_create_autocmd("FocusGained", {
+        callback = function()
+          focused = true
+        end,
+      })
+      vim.api.nvim_create_autocmd("FocusLost", {
+        callback = function()
+          focused = false
+        end,
+      })
+      table.insert(opts.routes, 1, {
+        filter = {
+          cond = function()
+            return not focused
+          end,
+        },
+        view = "notify_send",
+        opts = { stop = false },
+      })
+      opts.commands = {
+        all = {
+          -- options for the message history that you get with `:Noice`
+          view = "split",
+          opts = { enter = true, format = "details" },
+          filter = {},
+        },
+      }
+      vim.api.nvim_create_autocmd("FileType", {
+        pattern = "markdown",
+        callback = function(event)
+          vim.schedule(function()
+            require("noice.text.markdown").keys(event.buf)
+          end)
+        end,
+      })
+      opts.presets.lsp_doc_border = false
+      opts.presets.bottom_search = true
+    end,
+  },
+```
 
 ### Add formatter for certain filetypes
 
-(TODO)
+- In `~/.config/nvim/lua/plugins/formatting.lua`.
+
+Utilize `conform.nvim` plugins for formatting.
+
+```lua
+{
+  "stevearc/conform.nvim",
+  dependencies = { "mason.nvim" },
+  lazy = true,
+  cmd = "ConformInfo",
+  opts = {
+    ---@type table<string, conform.FormatterUnit[]>
+    -- NOTE: add formatter here => formatter installed separately (conform didn't automatically install it for you!)
+    formatters_by_ft = {
+      lua = { "stylua" },
+      sh = { "shfmt" },
+      -- NOTE: Conform will run multiple formatters sequentially
+      python = { "black", "isort" },
+      -- NOTE: Use a sub-list to run only the first available formatter
+      javascript = { { "prettierd", "prettier" } },
+      rust = { "rustfmt" },
+      go = { { "gofmt", "goimports" } },
+      sql = { "pg_format", "sql_formatter" },
+      yaml = { "yamlfmt" },
+    },
+  },
+}
+```
 
 ### Change git blame virtual text format
 
-(TODO)
+- In `~/.config/nvim/lua/plugins/formatting.lua`.
 
-### Change git blame virtual text format
+To customize the git blame virtual text, edit the `current_line_blame_formatter` field in the `gitsigns.nvim` opts.
 
-(TODO)
+```lua
+  {
+    "lewis6991/gitsigns.nvim",
+    event = "LazyFile",
+    opts = {
+      current_line_blame = true, -- Toggle with `:Gitsigns toggle_current_line_blame`
+      current_line_blame_opts = {
+        virt_text = true,
+        virt_text_pos = "eol", -- 'eol' | 'overlay' | 'right_align'
+        delay = 50,
+        ignore_whitespace = false,
+        virt_text_priority = 5000,
+      },
+      current_line_blame_formatter = "<author> • <author_time:%Y-%m-%d> • <summary>",
+    },
+  },
+```
 
 For other related to LazyVim, please refer to LazyVim [recipes](https://www.lazyvim.org/configuration/recipes) page
 
