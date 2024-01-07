@@ -389,6 +389,9 @@ For the file name previewer, we use `b0o/incline.nvim` plugins.
   },
 ```
 
+![In Buffer](./docs/filename-preview-in-buffer.png)
+![Out Buffer](./docs/filename-preview-out-buffer.png)
+
 ### Filter Notifications from vim-notify
 
 - In `~/.config/nvim/lua/plugins/ui.lua`.
