@@ -527,6 +527,7 @@ For other related to LazyVim, please refer to LazyVim [recipes](https://www.lazy
 ## Special thanks to...
 
 - [LazyVim](https://github.com/LazyVim/LazyVim)
+- [Craftzdog Dotfiles](https://github.com/craftzdog/dotfiles-public)
 
 ## ❤️ Support
 
