@@ -9,6 +9,13 @@ return {
         sidebars = "transparent",
         floats = "transparent",
       },
+      on_highlights = function(hl, c)
+        -- Visual Highlight more clear...
+        hl.Visual = {
+          bg = c.cyan,
+          fg = c.bg_dark,
+        }
+      end,
     },
   },
 }
