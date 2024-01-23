@@ -36,9 +36,6 @@ require("lazy").setup({
           },
         }
       end,
-      opts = {
-        colorscheme = "gruvbox",
-      },
     },
     -- import any extras modules here
     { import = "lazyvim.plugins.extras.linting.eslint" },

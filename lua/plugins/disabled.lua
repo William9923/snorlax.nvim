@@ -14,7 +14,6 @@ return {
   },
   { "echasnovski/mini.pairs", enabled = false },
   { "echasnovski/mini.surround", enabled = false },
-  { "folke/tokyonight.nvim", enabled = false },
   { "catppuccin/nvim", enabled = false },
   { "nvim-telescope/telescope-fzf-native.nvim", enabled = false },
   { "echasnovski/mini.bufremove", enabled = false },
