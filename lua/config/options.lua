@@ -76,3 +76,6 @@ vim.cmd([[
     autocmd BufWinEnter *.* silent! loadview
   augroup end
   ]])
+
+-- Nvim notify background color (when using transparent effects => need actual bg color)
+vim.cmd([[highlight NotifyBackground guibg=#000000]])
