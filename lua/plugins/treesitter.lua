@@ -65,10 +65,6 @@ return {
       },
       sync_install = true,
       indent = { enable = true, disable = { "toml", "yaml", "python", "css" } },
-      context_commentstring = {
-        enable = true,
-        enable_autocmd = false,
-      },
     },
     config = function(_, opts)
       require("nvim-treesitter.configs").setup(opts)
