@@ -1,13 +1,29 @@
 return {
+  -- Gruvbox theme
+  -- {
+  --   "ellisonleao/gruvbox.nvim",
+  --   lazy = true,
+  --   priority = 1000,
+  --   opts = function()
+  --     return {
+  --       transparent_mode = false,
+  --     }
+  --   end,
+  -- },
+  -- Rose pine theme (Moon edition)
   {
-    "ellisonleao/gruvbox.nvim",
+    "rose-pine/neovim",
+    name = "rose-pine",
+    variant = "moon",
+    dark_variant = "moon",
     lazy = true,
     priority = 1000,
-    opts = function()
-      return {
-        transparent_mode = false,
-      }
-    end,
+    opts = {
+      styles = {
+        bold = true,
+        italic = true,
+        transparency = true,
+      },
+    },
   },
-  -- Let's add the rose pine here
 }
