@@ -4,7 +4,7 @@ return {
   lazy = true,
   cmd = "ConformInfo",
   opts = {
-    -- NOTE: change formatter based on this file
+    -- NOTE: change formatter option based on this setting
 
     ---@type table<string, conform.FormatterUnit[]>
     formatters_by_ft = {
