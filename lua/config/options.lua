@@ -12,6 +12,10 @@ vim.g.loaded_perl_provider = 0
 vim.g.tmux_navigator_no_mappings = 1
 vim.g.tmux_navigator_save_on_switch = 2
 
+
+
+vim.g.autoformat = false
+
 vim.opt.shell = "zsh"
 vim.opt.breakindent = true
 vim.opt.backspace = { "start", "eol", "indent" }
