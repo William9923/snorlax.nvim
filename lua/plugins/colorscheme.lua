@@ -1,22 +1,29 @@
 return {
+  -- Gruvbox theme
+  -- {
+  --   "ellisonleao/gruvbox.nvim",
+  --   lazy = true,
+  --   priority = 1000,
+  --   opts = function()
+  --     return {
+  --       transparent_mode = false,
+  --     }
+  --   end,
+  -- },
+  -- Rose pine theme (Moon edition)
   {
-    "folke/tokyonight.nvim",
+    "rose-pine/neovim",
+    name = "rose-pine",
+    variant = "moon",
+    dark_variant = "moon",
     lazy = true,
+    priority = 1000,
     opts = {
-      style = "night",
-      transparent = true,
       styles = {
-        sidebars = "transparent",
-        floats = "transparent",
+        bold = true,
+        italic = true,
+        transparency = true,
       },
-      on_highlights = function(hl, c)
-        -- Visual Highlight more clear...
-        hl.Visual = {
-          bg = c.cyan,
-          fg = c.bg_dark,
-        }
-      end,
     },
   },
-  -- Let's add the rose pine here
 }
