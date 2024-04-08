@@ -3,7 +3,7 @@ return {
     "mfussenegger/nvim-dap",
     config = function()
       -- setup vscode reader
-      require("dap.ext.vscode").load_launchjs()
+      -- require("dap.ext.vscode").load_launchjs()
 
       -- setup golang personal debugger customization
       local dap_go = require("personal.dap-go")

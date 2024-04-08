@@ -38,7 +38,6 @@ return {
         preview = {
           treesitter = false,
         },
-        theme = "ivy",
         prompt_prefix = "  ",
         selection_caret = " ",
         path_display = { "smart" },

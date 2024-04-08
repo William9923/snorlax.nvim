@@ -4,7 +4,7 @@
 --
 local Util = require("lazyvim.util")
 local dicipline = require("personal.dicipline")
-dicipline.norepeat()
+dicipline.norepeat() -- NOTE: prevent / train vim user to not apply continuous key repeat
 
 local keymap = vim.keymap.set
 local opts = { noremap = true, silent = true }

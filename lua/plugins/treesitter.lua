@@ -34,6 +34,7 @@ return {
         "markdown",
         "bash",
 
+        -- scripting based
         "lua",
         "vim",
         "dockerfile",

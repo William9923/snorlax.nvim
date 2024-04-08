@@ -18,4 +18,5 @@ return {
       end,
     },
   },
+  -- Let's add the rose pine here
 }

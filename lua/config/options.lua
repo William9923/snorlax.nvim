@@ -68,7 +68,7 @@ vim.opt.wildignore:append({ "*/vendor/*" }) -- Go
 vim.opt.cursorline = true
 vim.opt.guicursor = "n-v-c-sm:block,i-ci-ve:ver75-Cursor,r-cr-o:hor20-Cursor"
 
--- Folding options
+-- NOTE: apply auto folding options
 vim.cmd([[
   augroup remember_folds
     autocmd!
