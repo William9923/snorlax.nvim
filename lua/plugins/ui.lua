@@ -195,30 +195,6 @@ return {
     end,
   },
 
-  -- cursor animation
-  -- {
-  --   "echasnovski/mini.animate",
-  --   event = "VeryLazy",
-  --   opts = function(_, opts)
-  --     local animate = require("mini.animate")
-  --     opts.scroll = {
-  --       enable = false,
-  --     }
-  --     opts.resize = {
-  --       enable = false,
-  --     }
-  --     opts.open = {
-  --       enable = false,
-  --     }
-  --     opts.close = {
-  --       enable = false,
-  --     }
-  --     opts.cursor = {
-  --       timing = animate.gen_timing.linear({ duration = 300, unit = "total" }), -- adjust the duration of how the cursor travel (in ms)
-  --     }
-  --   end,
-  -- },
-  --
   -- tmux navigation
   {
     "alexghergh/nvim-tmux-navigation",
