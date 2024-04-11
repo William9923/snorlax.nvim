@@ -37,7 +37,7 @@ require("lazy").setup({
         }
       end,
       opts = {
-        colorscheme = "rose-pine",
+        colorscheme = "nordic",
       },
     },
     -- import any extras modules here

@@ -1,4 +1,4 @@
-local filetype = require "mason-lspconfig.mappings.filetype"
+local filetype = require("mason-lspconfig.mappings.filetype")
 -- Autocmds are automatically loaded on the VeryLazy event
 -- Default autocmds that are always set: https://github.com/LazyVim/LazyVim/blob/main/lua/lazyvim/config/autocmds.lua
 -- Add any additional autocmds here
@@ -22,6 +22,7 @@ vim.api.nvim_create_autocmd({ "VimEnter" }, {
 -- NOTE: autocmd for line number color (above current line: red, below current line: blue)
 vim.api.nvim_create_autocmd({ "BufEnter" }, {
   callback = function()
+    vim.cmd("hi Visual term=reverse cterm=reverse guibg=Grey")
     vim.cmd("hi LineNrAbove guifg=red ctermfg=red")
     vim.cmd("hi LineNrBelow guifg=cyan ctermfg=cyan")
   end,
