@@ -17,16 +17,4 @@ return {
     },
   },
   { "nvim-neotest/neotest-plenary" },
-  {
-    "mfussenegger/nvim-dap",
-    keys = {
-      {
-        "<leader>td",
-        function()
-          require("neotest").run.run_last({ strategy = "dap" })
-        end,
-        desc = "Debug Nearest",
-      },
-    },
-  },
 }
