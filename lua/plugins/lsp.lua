@@ -154,8 +154,7 @@ return {
         },
       },
       gopls = {
-        keys = {
-        },
+        keys = {},
         settings = {
           gopls = {
             gofumpt = true,
