@@ -3,8 +3,8 @@
 -- Add any additional keymaps here
 --
 local Util = require("lazyvim.util")
-local dicipline = require("personal.dicipline")
-dicipline.norepeat() -- NOTE: prevent / train vim user to not apply continuous key repeat
+-- local dicipline = require("personal.dicipline")
+-- dicipline.norepeat() -- NOTE: prevent / train vim user to not apply continuous key repeat
 
 local keymap = vim.keymap.set
 local opts = { noremap = true, silent = true }
@@ -116,3 +116,7 @@ keymap("n", "<C-h>", ":NvimTmuxNavigateLeft<cr>", opts)
 keymap("n", "<C-j>", ":NvimTmuxNavigateDown<cr>", opts)
 keymap("n", "<C-k>", ":NvimTmuxNavigateUp<cr>", opts)
 keymap("n", "<C-l>", ":NvimTmuxNavigateRight<cr>", opts)
+
+-- Copilot
+keymap("n", ";cc", ":CopilotChat<cr>")
+keymap("v", ";cc", ":CopilotChat<cr>")

@@ -12,8 +12,6 @@ vim.g.loaded_perl_provider = 0
 vim.g.tmux_navigator_no_mappings = 1
 vim.g.tmux_navigator_save_on_switch = 2
 
-
-
 vim.g.autoformat = false
 
 vim.opt.shell = "zsh"
@@ -71,6 +69,9 @@ vim.opt.wildignore:append({ "*/vendor/*" }) -- Go
 -- Cursor
 vim.opt.cursorline = true
 vim.opt.guicursor = "n-v-c-sm:block,i-ci-ve:ver75-Cursor,r-cr-o:hor20-Cursor"
+
+-- Copilot
+vim.api.nvim_set_hl(0, "CmpItemKindCopilot", { fg = "#6CC644" })
 
 -- NOTE: apply auto folding options
 vim.cmd([[
