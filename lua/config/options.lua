@@ -74,7 +74,10 @@ vim.opt.foldlevel = 99
 vim.opt.foldlevelstart = 1
 vim.opt.foldnestmax = 4
 
--- apply auto folding options
+-- Copilot
+vim.api.nvim_set_hl(0, "CmpItemKindCopilot", { fg = "#6CC644" })
+
+-- NOTE: apply auto folding options
 vim.cmd([[
   augroup remember_folds
     autocmd!

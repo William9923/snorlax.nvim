@@ -38,6 +38,7 @@ return {
       Event = "",
       Operator = "",
       TypeParameter = "󰉺",
+      Copilot = "",
     }
 
     local cmp = require("cmp")
@@ -64,6 +65,11 @@ return {
       end, { "i", "s" }),
     })
     opts.sources = cmp.config.sources({
+      -- For copilot autocompletion
+      {
+        name = "copilot",
+        group_index = 1,
+      },
       { name = "nvim_lsp" },
       { name = "nvim_lua" },
     }, {

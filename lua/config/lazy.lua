@@ -52,7 +52,8 @@ require("lazy").setup({
     { import = "lazyvim.plugins.extras.lang.typescript" },
     { import = "lazyvim.plugins.extras.lang.rust" },
 
-    { import = "lazyvim.plugins.extras.test.core" },
+    { import = "lazyvim.plugins.extras.coding.copilot" },
+    { import = "lazyvim.plugins.extras.coding.copilot-chat" },
 
     -- import/override with your plugins
     { import = "plugins" },
