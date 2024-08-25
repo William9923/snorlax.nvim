@@ -117,6 +117,3 @@ keymap("n", "<C-j>", ":NvimTmuxNavigateDown<cr>", opts)
 keymap("n", "<C-k>", ":NvimTmuxNavigateUp<cr>", opts)
 keymap("n", "<C-l>", ":NvimTmuxNavigateRight<cr>", opts)
 
--- Copilot
-keymap("n", ";cc", ":CopilotChat<cr>")
-keymap("v", ";cc", ":CopilotChat<cr>")

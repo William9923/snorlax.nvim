@@ -1,4 +1,4 @@
-local keys = require("lazy.core.handler.keys")
+-- local keys = require("lazy.core.handler.keys")
 return {
   {
     "nvim-neo-tree/neo-tree.nvim",
@@ -198,6 +198,12 @@ return {
     },
   },
   {
+    "zbirenbaum/copilot-cmp",
+    config = function()
+      require("copilot_cmp").setup()
+    end,
+  },
+  {
     "CopilotC-Nvim/CopilotChat.nvim",
     event = "VeryLazy",
     branch = "canary",
@@ -209,6 +215,15 @@ return {
     opts = {
       debug = false,
       show_help = false,
+      clear_chat_on_reset = true,
+      context = "buffers", -- by default use all open buffers as context
+      window = {
+        layout = "float",
+        relative = "editor",
+        width = 0.8,
+        height = 0.6,
+        row = 5,
+      },
       -- Prompts
       -- List of default prompts...
       -- - Explain
@@ -221,9 +236,6 @@ return {
       -- - Commit
       -- - CommitStaged
       prompts = {
-        Summarize = {
-          prompt = "Summarize",
-        },
         Spelling = {
           prompt = "Please correct any grammar and spelling errors in the following text.",
         },
@@ -236,37 +248,47 @@ return {
       },
     },
     -- See Commands section for default commands if you want to lazy load on them
+    -- need to do something regarding the mode ?
     keys = {
-      { "<leader>ccb", ":CopilotChatBuffer ", desc = "CopilotChat - Chat with current buffer" },
-      { "<leader>cce", "<cmd>CopilotChatExplain<cr>", desc = "CopilotChat - Explain code" },
-      { "<leader>cct", "<cmd>CopilotChatTests<cr>", desc = "CopilotChat - Generate tests" },
       {
-        "<leader>ccT",
-        "<cmd>CopilotChatVsplitToggle<cr>",
-        desc = "CopilotChat - Toggle Vsplit", -- Toggle vertical split
+        "<leader>ccq",
+        function()
+          local input = vim.fn.input("Quick Chat: ")
+          if input ~= "" then
+            require("CopilotChat").ask(input, { selection = require("CopilotChat.select").buffer })
+          end
+        end,
+        desc = "CopilotChat - Quick chat",
       },
       {
-        "<leader>ccv",
-        ":CopilotChatVisual ",
-        mode = "x",
-        desc = "CopilotChat - Open in vertical split",
+        "<leader>ccp",
+        function()
+          local actions = require("CopilotChat.actions")
+          require("CopilotChat.integrations.telescope").pick(actions.prompt_actions())
+        end,
+        desc = "CopilotChat - Prompt actions",
       },
-      {
-        "<leader>ccx",
-        ":CopilotChatInPlace<cr>",
-        mode = "x",
-        desc = "CopilotChat - Run in-place code",
-      },
-      {
-        "<leader>ccf",
-        "<cmd>CopilotChatFixDiagnostic<cr>", -- Get a fix for the diagnostic message under the cursor.
-        desc = "CopilotChat - Fix diagnostic",
-      },
-      {
-        "<leader>ccr",
-        "<cmd>CopilotChatReset<cr>", -- Reset chat history and clear buffer.
-        desc = "CopilotChat - Reset chat history and clear buffer",
-      },
+    },
+  },
+
+  "MagicDuck/grug-far.nvim",
+  opts = { headerMaxWidth = 80 },
+  cmd = "GrugFar",
+  keys = {
+    {
+      "<leader>sr",
+      function()
+        local grug = require("grug-far")
+        local ext = vim.bo.buftype == "" and vim.fn.expand("%:e")
+        grug.grug_far({
+          transient = true,
+          prefills = {
+            filesFilter = ext and ext ~= "" and "*." .. ext or nil,
+          },
+        })
+      end,
+      mode = { "n", "v" },
+      desc = "Search and Replace",
     },
   },
 }
