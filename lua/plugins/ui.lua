@@ -80,9 +80,6 @@ return {
           },
         },
         window = { margin = { vertical = 0, horizontal = 1 } },
-        hide = {
-          cursorline = true,
-        },
         render = function(props)
           local filename = vim.fn.fnamemodify(vim.api.nvim_buf_get_name(props.buf), ":t")
           if vim.bo[props.buf].modified then
@@ -158,46 +155,6 @@ return {
     end,
   },
 
-  -- AutoFold UI
-  {
-    "anuvyklack/pretty-fold.nvim",
-    event = "VeryLazy",
-    init = function()
-      vim.g.vimwiki_folding = ""
-      vim.g.vimwiki_list = {
-        {
-          path = "~/vimwiki",
-          syntax = "default",
-          ext = ".wiki",
-        },
-      }
-    end,
-    config = function()
-      local fold = require("pretty-fold")
-      fold.setup({
-        keep_indentation = false,
-        fill_char = "━",
-        sections = {
-          left = {
-            "━ ",
-            function()
-              return string.rep("*", vim.v.foldlevel)
-            end,
-            " ━┫",
-            "content",
-            "┣",
-          },
-          right = {
-            "┫ ",
-            "number_of_folded_lines",
-            ": ",
-            "percentage",
-            " ┣━━",
-          },
-        },
-      })
-    end,
-  },
 
   -- tmux navigation
   {
