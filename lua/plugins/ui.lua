@@ -12,15 +12,15 @@ return {
       })
       table.insert(opts.routes, {
         filter = {
-          event = "msg_show",
-          -- NOTE: add any annoying message here
           any = {
+            -- NOTE: add any annoying message here to filter from editor
             { find = "%d+L, %d+B" },
             { find = "; after #%d+" },
             { find = "; before #%d+" },
             { find = "%d+ more lines" },
             { find = "%d+ fewer lines" },
             { find = "%d+ lines yanked" },
+            { find = "gitsigns: Ignoring" }, -- haven't found fix yet, so quick workaround
           },
         },
         view = "mini",
@@ -132,8 +132,8 @@ return {
       ██║     ██║████╗  ██║██║   ██║╚██╗██╔╝██║  ██║██╔════╝██║     ██║
       ██║     ██║██╔██╗ ██║██║   ██║ ╚███╔╝ ███████║█████╗  ██║     ██║
       ██║     ██║██║╚██╗██║██║   ██║ ██╔██╗ ██╔══██║██╔══╝  ██║     ██║
-          ███████╗██║██║ ╚████║╚██████╔╝██╔╝ ██╗██║  ██║███████╗███████╗███████╗
-          ╚══════╝╚═╝╚═╝  ╚═══╝ ╚═════╝ ╚═╝  ╚═╝╚═╝  ╚═╝╚══════╝╚══════╝╚══════╝
+            ███████╗██║██║ ╚████║╚██████╔╝██╔╝ ██╗██║  ██║███████╗███████╗███████╗
+            ╚══════╝╚═╝╚═╝  ╚═══╝ ╚═════╝ ╚═╝  ╚═╝╚═╝  ╚═╝╚══════╝╚══════╝╚══════╝
         by: William Ong
       ]]
 

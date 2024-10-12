@@ -12,8 +12,6 @@ vim.g.loaded_perl_provider = 0
 vim.g.tmux_navigator_no_mappings = 1
 vim.g.tmux_navigator_save_on_switch = 2
 
-
-
 vim.g.autoformat = false
 
 vim.opt.shell = "zsh"
@@ -71,6 +69,13 @@ vim.opt.wildignore:append({ "*/vendor/*" }) -- Go
 -- Cursor
 vim.opt.cursorline = true
 vim.opt.guicursor = "n-v-c-sm:block,i-ci-ve:ver75-Cursor,r-cr-o:hor20-Cursor"
+
+vim.opt.smoothscroll = true
+vim.opt.foldexpr = "v:lua.vim.treesitter.foldexpr()"
+vim.opt.foldmethod = "expr"
+vim.opt.foldlevel = 99
+vim.opt.foldlevelstart = 1
+vim.opt.foldnestmax = 4
 
 -- NOTE: apply auto folding options
 vim.cmd([[

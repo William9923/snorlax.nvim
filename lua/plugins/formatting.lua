@@ -4,18 +4,17 @@ return {
   lazy = true,
   cmd = "ConformInfo",
   opts = {
-    -- NOTE: change formatter option based on this setting
-
-    ---@type table<string, conform.FormatterUnit[]>
     formatters_by_ft = {
       lua = { "stylua" },
       sh = { "shfmt" },
+
       -- NOTE: Conform will run multiple formatters sequentially
       python = { "black", "isort" },
+
       -- NOTE: Use a sub-list to run only the first available formatter
-      javascript = { { "prettierd", "prettier" } },
+      javascript = { { "prettier", "prettierd" } },
       rust = { "rustfmt" },
-      go = { { "gofmt", "goimports" } },
+      go = { { "goimports", "gofmt" } },
       sql = { "pg_format", "sql_formatter" },
       yaml = { "yamlfmt" },
     },

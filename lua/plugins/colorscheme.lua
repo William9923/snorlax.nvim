@@ -14,8 +14,8 @@ return {
   {
     "rose-pine/neovim",
     name = "rose-pine",
-    variant = "moon",
-    dark_variant = "moon",
+    variant = "main",
+    dark_variant = "main",
     lazy = true,
     priority = 1000,
     opts = {
