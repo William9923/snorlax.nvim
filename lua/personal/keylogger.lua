@@ -3,23 +3,19 @@ local api = vim.api
 
 -- Configuration options
 M.config = {
-  window_size = { width = 30, height = 10 },
   clear_after = 5, -- Clear keys after this many seconds
   max_buffer = 50, -- Maximum number of keys to store
   win_opts = {
-    relative = "editor",
-    width = 30,
-    height = 10,
-    -- TODO: do we need something like this ? -> can we do using other approach...
-    col = function()
-      return vim.o.columns - 30
-    end,
-    row = function()
-      return vim.o.lines - 13
-    end,
+    relative = "win",
+    width = 40,
+    height = 1,
+    col = vim.o.columns - 1,
+    row = vim.o.lines - 1,
     anchor = "SE",
     style = "minimal",
-    border = "single",
+    title = "Keylogger",
+    title_pos = "center",
+    border = { "╔", "═" ,"╗", "║", "╝", "═", "╚", "║" },
   },
   disable = {
     filetypes = {},
@@ -74,19 +70,7 @@ local function create_window()
     bufnr = api.nvim_create_buf(false, true)
   end
 
-  local win_opts = vim.tbl_extend("force", M.config.win_opts, {
-    width = M.config.window_size.width,
-    height = M.config.window_size.height,
-  })
-
-  -- Evaluate functional options
-  for k, v in pairs(win_opts) do
-    if type(v) == "function" then
-      win_opts[k] = v()
-    end
-  end
-
-  winnr = api.nvim_open_win(bufnr, false, win_opts)
+  winnr = api.nvim_open_win(bufnr, false, M.config.win_opts)
   if not winnr then
     error("Keylogger: failed to create window")
   end
@@ -113,7 +97,7 @@ local function clear_buffer()
   end
 
   local rep = {}
-  for _ = 1, M.config.window_size.height do
+  for _ = 1, M.config.win_opts.height do
     table.insert(rep, "")
   end
   api.nvim_buf_set_lines(bufnr, 0, -1, false, rep)
@@ -198,7 +182,7 @@ local function display_text()
 
   local display_keys = {}
   local total_width = 0
-  local max_width = M.config.window_size.width - 2 -- Account for borders
+  local max_width = M.config.win_opts.width - 2 -- Account for borders
 
   -- Prepare keys for display, respecting max width
   for i = #queued_keys, 1, -1 do
@@ -219,7 +203,7 @@ local function display_text()
   local centered_text = padding .. text
 
   -- Set the text in the buffer
-  local line = math.floor(M.config.window_size.height / 2)
+  local line = math.floor(M.config.win_opts.height / 2)
   api.nvim_buf_set_lines(bufnr, line, line + 1, false, { centered_text })
 
   -- Apply highlighting for special keys
