@@ -108,4 +108,3 @@ dicipline.norepeat() -- NOTE: prevent / train vim user to not apply continuous k
 local keylogger = require("personal.keylogger")
 keylogger.setup()
 keylogger.toggle() --> TODO: make a better way to activate this, for example can use autocmd
-

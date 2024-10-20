@@ -14,6 +14,7 @@ vim.g.tmux_navigator_save_on_switch = 2
 
 vim.g.autoformat = false
 
+vim.opt.fileformat = "dos"
 vim.opt.shell = "zsh"
 vim.opt.breakindent = true
 vim.opt.backspace = { "start", "eol", "indent" }
@@ -56,20 +57,16 @@ vim.opt.splitright = true -- Put new windows right of current
 vim.opt.whichwrap:append("<,>,[,],h,l") -- keys allowed to move to the previous/next line when the beginning/end of line is reached
 vim.opt.iskeyword:append("-") -- treats words with `-` as single words
 
--- Neovim folding config...
-vim.opt.foldlevel = 2
-vim.opt.foldmethod = "expr"
-vim.opt.foldexpr = "nvim_treesitter#foldexpr()"
-
 -- Neovim search
 vim.opt.path:append({ "**" }) -- Finding files - Search down into subfolders
-vim.opt.wildignore:append({ "*/node_modules/*" }) -- Node js, javascript
-vim.opt.wildignore:append({ "*/vendor/*" }) -- Go
+vim.opt.wildignore:append({ "*/node_modules/*" }) -- ignore: Node js, javascript node modules
+vim.opt.wildignore:append({ "*/vendor/*" }) -- ignore: Go vendor
 
 -- Cursor
 vim.opt.cursorline = true
 vim.opt.guicursor = "n-v-c-sm:block,i-ci-ve:ver75-Cursor,r-cr-o:hor20-Cursor"
 
+-- Neovim auto folding
 vim.opt.smoothscroll = true
 vim.opt.foldexpr = "v:lua.vim.treesitter.foldexpr()"
 vim.opt.foldmethod = "expr"
@@ -77,7 +74,7 @@ vim.opt.foldlevel = 99
 vim.opt.foldlevelstart = 1
 vim.opt.foldnestmax = 4
 
--- NOTE: apply auto folding options
+-- apply auto folding options
 vim.cmd([[
   augroup remember_folds
     autocmd!
@@ -86,5 +83,7 @@ vim.cmd([[
   augroup end
   ]])
 
--- Nvim notify background color (when using transparent effects => need actual bg color)
-vim.cmd([[highlight NotifyBackground guibg=#000000]])
+-- Ensure no EOL at the end of file
+vim.cmd([[
+  setl ff=unix fixeol
+]])
