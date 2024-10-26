@@ -9,13 +9,11 @@ M.config = {
     relative = "win",
     width = 40,
     height = 1,
-    col = vim.o.columns - 1,
-    row = vim.o.lines - 1,
     anchor = "SE",
     style = "minimal",
     title = "Keylogger",
     title_pos = "center",
-    border = { "╔", "═" ,"╗", "║", "╝", "═", "╚", "║" },
+    border = { "╔", "═", "╗", "║", "╝", "═", "╚", "║" },
   },
   disable = {
     filetypes = {},
@@ -70,7 +68,13 @@ local function create_window()
     bufnr = api.nvim_create_buf(false, true)
   end
 
-  winnr = api.nvim_open_win(bufnr, false, M.config.win_opts)
+  -- calculate the placement of the keylogger buffer dynamically...
+  local win_opts = vim.tbl_extend("force", M.config.win_opts, {
+    col = vim.o.columns - 1,
+    row = vim.o.lines - 1,
+  })
+
+  winnr = api.nvim_open_win(bufnr, false, win_opts)
   if not winnr then
     error("Keylogger: failed to create window")
   end
@@ -253,6 +257,13 @@ function M.setup(opts)
 
     display_text()
   end, ns_id)
+
+  -- add autocmd to redraw whenever neovim resized
+  vim.api.nvim_create_autocmd("VimResized", {
+    callback = function()
+      M.redraw()
+    end,
+  })
 end
 
 function M.toggle()
@@ -264,6 +275,15 @@ function M.toggle()
     close_window()
     kill_timer()
   end
+end
+
+function M.redraw()
+  if not active then
+    return
+  end
+  close_window()
+  create_window()
+  display_text()
 end
 
 return M

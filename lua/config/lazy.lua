@@ -107,4 +107,4 @@ dicipline.norepeat() -- NOTE: prevent / train vim user to not apply continuous k
 -- Keylogger: Showcase the actual key translated into neovim (vs what we type)
 local keylogger = require("personal.keylogger")
 keylogger.setup()
-keylogger.toggle() --> TODO: make a better way to activate this, for example can use autocmd
+-- keylogger.toggle() --> TODO: make a better way to activate this, for example can use autocmd
