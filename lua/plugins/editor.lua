@@ -220,9 +220,6 @@ return {
       -- - Commit
       -- - CommitStaged
       prompts = {
-        Summarize = {
-          prompt = "Summarize",
-        },
         Spelling = {
           prompt = "Please correct any grammar and spelling errors in the following text.",
         },
