@@ -65,12 +65,8 @@ return {
       end, { "i", "s" }),
     })
     opts.sources = cmp.config.sources({
-      -- For copilot autocompletion
-      {
-        name = "copilot",
-        group_index = 1,
-      },
       { name = "nvim_lsp" },
+      { name = "copilot" }, -- For copilot autocompletion
       { name = "nvim_lua" },
     }, {
       { name = "path" },

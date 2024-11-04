@@ -196,73 +196,73 @@ return {
       },
     },
   },
-  {
-    "CopilotC-Nvim/CopilotChat.nvim",
-    event = "VeryLazy",
-    branch = "canary",
-    dependencies = {
-      { "zbirenbaum/copilot.lua" },
-      { "nvim-telescope/telescope.nvim" }, -- Use telescope for help actions
-      { "nvim-lua/plenary.nvim" }, -- for curl, log wrapper
-    },
-    opts = {
-      debug = false,
-      show_help = false,
-      -- Prompts
-      -- List of default prompts...
-      -- - Explain
-      -- - Review
-      -- - Fix
-      -- - Optimize
-      -- - Docs
-      -- - Tests
-      -- - FixDiagnostic
-      -- - Commit
-      -- - CommitStaged
-      prompts = {
-        Spelling = {
-          prompt = "Please correct any grammar and spelling errors in the following text.",
-        },
-        Wording = {
-          prompt = "Please improve the grammar and wording of the following text.",
-        },
-        Concise = {
-          prompt = "Please rewrite the following text to make it more concise.",
-        },
-      },
-    },
-    -- See Commands section for default commands if you want to lazy load on them
-    keys = {
-      { "<leader>ccb", ":CopilotChatBuffer ", desc = "CopilotChat - Chat with current buffer" },
-      { "<leader>cce", "<cmd>CopilotChatExplain<cr>", desc = "CopilotChat - Explain code" },
-      { "<leader>cct", "<cmd>CopilotChatTests<cr>", desc = "CopilotChat - Generate tests" },
-      {
-        "<leader>ccT",
-        "<cmd>CopilotChatVsplitToggle<cr>",
-        desc = "CopilotChat - Toggle Vsplit", -- Toggle vertical split
-      },
-      {
-        "<leader>ccv",
-        ":CopilotChatVisual ",
-        mode = "x",
-        desc = "CopilotChat - Open in vertical split",
-      },
-      {
-        "<leader>ccx",
-        ":CopilotChatInPlace<cr>",
-        mode = "x",
-        desc = "CopilotChat - Run in-place code",
-      },
-      {
-        "<leader>ccf",
-        "<cmd>CopilotChatFixDiagnostic<cr>", -- Get a fix for the diagnostic message under the cursor.
-        desc = "CopilotChat - Fix diagnostic",
-      },
-      {
-        "<leader>ccr",
-        "<cmd>CopilotChatReset<cr>", -- Reset chat history and clear buffer.
-        desc = "CopilotChat - Reset chat history and clear buffer",
-      },
-    },
-  },
+  -- {
+  --   "CopilotC-Nvim/CopilotChat.nvim",
+  --   event = "VeryLazy",
+  --   branch = "canary",
+  --   dependencies = {
+  --     { "zbirenbaum/copilot.lua" },
+  --     { "nvim-telescope/telescope.nvim" }, -- Use telescope for help actions
+  --     { "nvim-lua/plenary.nvim" }, -- for curl, log wrapper
+  --   },
+  --   opts = {
+  --     debug = false,
+  --     show_help = false,
+  --     -- Prompts
+  --     -- List of default prompts...
+  --     -- - Explain
+  --     -- - Review
+  --     -- - Fix
+  --     -- - Optimize
+  --     -- - Docs
+  --     -- - Tests
+  --     -- - FixDiagnostic
+  --     -- - Commit
+  --     -- - CommitStaged
+  --     prompts = {
+  --       Spelling = {
+  --         prompt = "Please correct any grammar and spelling errors in the following text.",
+  --       },
+  --       Wording = {
+  --         prompt = "Please improve the grammar and wording of the following text.",
+  --       },
+  --       Concise = {
+  --         prompt = "Please rewrite the following text to make it more concise.",
+  --       },
+  --     },
+  --   },
+  --   -- See Commands section for default commands if you want to lazy load on them
+  --   keys = {
+  --     { "<leader>ccb", ":CopilotChatBuffer ", desc = "CopilotChat - Chat with current buffer" },
+  --     { "<leader>cce", "<cmd>CopilotChatExplain<cr>", desc = "CopilotChat - Explain code" },
+  --     { "<leader>cct", "<cmd>CopilotChatTests<cr>", desc = "CopilotChat - Generate tests" },
+  --     {
+  --       "<leader>ccT",
+  --       "<cmd>CopilotChatVsplitToggle<cr>",
+  --       desc = "CopilotChat - Toggle Vsplit", -- Toggle vertical split
+  --     },
+  --     {
+  --       "<leader>ccv",
+  --       ":CopilotChatVisual ",
+  --       mode = "x",
+  --       desc = "CopilotChat - Open in vertical split",
+  --     },
+  --     {
+  --       "<leader>ccx",
+  --       ":CopilotChatInPlace<cr>",
+  --       mode = "x",
+  --       desc = "CopilotChat - Run in-place code",
+  --     },
+  --     {
+  --       "<leader>ccf",
+  --       "<cmd>CopilotChatFixDiagnostic<cr>", -- Get a fix for the diagnostic message under the cursor.
+  --       desc = "CopilotChat - Fix diagnostic",
+  --     },
+  --     {
+  --       "<leader>ccr",
+  --       "<cmd>CopilotChatReset<cr>", -- Reset chat history and clear buffer.
+  --       desc = "CopilotChat - Reset chat history and clear buffer",
+  --     },
+  --   },
+  -- },
 }

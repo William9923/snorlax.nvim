@@ -155,7 +155,6 @@ return {
     end,
   },
 
-
   -- tmux navigation
   {
     "alexghergh/nvim-tmux-navigation",
