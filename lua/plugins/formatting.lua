@@ -7,14 +7,10 @@ return {
     formatters_by_ft = {
       lua = { "stylua" },
       sh = { "shfmt" },
-
-      -- NOTE: Conform will run multiple formatters sequentially
       python = { "black", "isort" },
-
-      -- NOTE: Use a sub-list to run only the first available formatter
-      javascript = { { "prettier", "prettierd" } },
+      javascript = { "prettier", "prettierd", stop_after_first = true },
       rust = { "rustfmt" },
-      go = { { "goimports", "gofmt" } },
+      go = { "goimports", "gofmt", stop_after_first = true },
       sql = { "pg_format", "sql_formatter" },
       yaml = { "yamlfmt" },
     },

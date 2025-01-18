@@ -4,7 +4,16 @@ return {
     cmd = "Copilot",
     build = ":Copilot auth",
     opts = {
-      suggestion = { enabled = false },
+      suggestion = {
+        enabled = false,
+        keymap = {
+          accept = "<leader>ll",
+          accept_word = false,
+          accept_line = false,
+          next = "<leader>l]",
+          prev = "<leader>l[",
+        },
+      },
       panel = { enabled = false },
       filetypes = {
         markdown = false,
