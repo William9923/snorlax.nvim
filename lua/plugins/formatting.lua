@@ -9,6 +9,7 @@ return {
       sh = { "shfmt" },
       python = { "black", "isort" },
       javascript = { "prettier", "prettierd", stop_after_first = true },
+      typescript = { "prettier", "prettierd", stop_after_first = true },
       rust = { "rustfmt" },
       go = { "goimports", "gofmt", stop_after_first = true },
       sql = { "pg_format", "sql_formatter" },

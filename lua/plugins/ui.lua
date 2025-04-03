@@ -21,6 +21,7 @@ return {
             { find = "%d+ fewer lines" },
             { find = "%d+ lines yanked" },
             { find = "gitsigns: Ignoring" }, -- haven't found fix yet, so quick workaround
+            { find = "Invalid settings:" }, -- haven't found fix yet, so quick workaround -> for gopls
           },
         },
         view = "mini",

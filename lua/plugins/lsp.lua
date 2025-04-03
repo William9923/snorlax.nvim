@@ -8,11 +8,11 @@ return {
         "luacheck",
         "shellcheck",
         "shfmt",
-        "typescript-language-server",
+        -- "typescript-language-server",
         "css-lsp",
         "goimports",
         "gofumpt",
-        "delve",
+        -- "delve",
       })
     end,
   },
@@ -49,37 +49,6 @@ return {
       servers = {
         pyright = {},
         cssls = {},
-        tsserver = {
-          enabled = true,
-          root_dir = function(...)
-            return require("lspconfig.util").root_pattern(".git")(...)
-          end,
-          single_file_support = false,
-          settings = {
-            typescript = {
-              inlayHints = {
-                includeInlayParameterNameHints = "literal",
-                includeInlayParameterNameHintsWhenArgumentMatchesName = false,
-                includeInlayFunctionParameterTypeHints = true,
-                includeInlayVariableTypeHints = false,
-                includeInlayPropertyDeclarationTypeHints = true,
-                includeInlayFunctionLikeReturnTypeHints = true,
-                includeInlayEnumMemberValueHints = true,
-              },
-            },
-            javascript = {
-              inlayHints = {
-                includeInlayParameterNameHints = "all",
-                includeInlayParameterNameHintsWhenArgumentMatchesName = false,
-                includeInlayFunctionParameterTypeHints = true,
-                includeInlayVariableTypeHints = true,
-                includeInlayPropertyDeclarationTypeHints = true,
-                includeInlayFunctionLikeReturnTypeHints = true,
-                includeInlayEnumMemberValueHints = true,
-              },
-            },
-          },
-        },
         html = {},
         yamlls = {
           settings = {
@@ -89,6 +58,9 @@ return {
           },
         },
         lua_ls = {},
+        vtsls = {
+          enabled = false,
+        },
       },
       gopls = {
         keys = {},
@@ -115,7 +87,7 @@ return {
               rangeVariableTypes = true,
             },
             analyses = {
-              fieldalignment = true,
+              fieldalignment = false, -- Ensure it's explicitly disabled
               nilness = true,
               unusedparams = true,
               unusedwrite = true,
