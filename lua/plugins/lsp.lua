@@ -8,6 +8,7 @@ return {
         "luacheck",
         "shellcheck",
         "shfmt",
+        "lua-language-server",
         "typescript-language-server",
         "css-lsp",
         "goimports",
@@ -88,7 +89,18 @@ return {
             },
           },
         },
-        lua_ls = {},
+        lua_ls = {
+          settings = {
+            Lua = {
+              -- Make the server aware of Neovim runtime files
+              workspace = {
+                -- Path to the Lua Addson
+                userThirdParty = { os.getenv("HOME") .. ".local/share/LuaAddons" },
+                checkThirdParty = "Apply",
+              },
+            },
+          },
+        },
       },
       gopls = {
         keys = {},
