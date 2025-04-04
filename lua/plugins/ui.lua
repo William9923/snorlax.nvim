@@ -1,3 +1,7 @@
+local date_gen = io.popen('echo "$(date +%d)/$(date +%m)/$(date +%y) ($(date +%a )) $(date +%X)" | tr -d "\n"')
+local date = date_gen:read("*a")
+date_gen:close()
+
 return {
   -- messages, cmdline and the popupmenu
   {
@@ -115,6 +119,11 @@ pane_gap = 10,
         preset = {
           -- Used by the `header` section
           header = [[
+
+
+
+
+
       ██╗  ██╗███████╗██╗     ██╗
       ██║  ██║██╔════╝██║     ██║
       ███████║█████╗  ██║     ██║
@@ -122,7 +131,9 @@ pane_gap = 10,
         ██╗██║  ██║███████╗███████╗███████╗
         ╚═╝╚═╝  ╚═╝╚══════╝╚══════╝╚══════╝
     by: William Ong
-      ]],
+
+
+      ]] .. "\nDate: " .. date .. "\n",
           ---@type snacks.dashboard.Item[]
           keys = {
             { icon = " ", key = "f", desc = "Find File", action = ":lua Snacks.dashboard.pick('files')" },
@@ -136,25 +147,22 @@ pane_gap = 10,
         -- or leave it empty to use the default settings
         -- refer to the configuration section below
         sections = {
-          { section = "header" },
-          { section = "keys", gap = 1, padding = 1 },
-          { section = "startup" },
-          -- {
-          --   pane = 2,
-          --   icon = " ",
-          --   title = "Git Status",
-          --   section = "terminal",
-          --   enabled = function()
-          --     return Snacks.git.get_root() ~= nil
-          --   end,
-          --   cmd = "git status --short --branch --renames",
-          --   height = 5,
-          --   ttl = 5 * 60,
-          --   indent = 4,
-          --   gap = 10,
-          --   padding = 1,
-          -- },
-          -- { pane = 2, icon = " ", title = "Recent Files", section = "recent_files", indent = 2, padding = 1 },
+          {
+            pane = 2,
+            section = "terminal",
+            enabled = function()
+              return Snacks.git.get_root() ~= nil
+            end,
+            cmd = "artprint -a colorowl2 -t \"We don't sleep at night - Owls\"",
+            height = 12,
+            ttl = 5 * 60,
+            indent = 2,
+            gap = 2,
+            padding = 1,
+          },
+          { section = "header", gap = 2, padding = 1, height = 15 },
+          { pane = 1, section = "keys", gap = 1, padding = 1 },
+          { pane = 1, section = "startup" },
           {
             pane = 2,
             icon = " ",
@@ -164,7 +172,7 @@ pane_gap = 10,
               return Snacks.git.get_root() ~= nil
             end,
             cmd = "git log --all --decorate --oneline --graph",
-            height = 25,
+            height = 20,
             ttl = 5 * 60,
             indent = 2,
             gap = 2,
@@ -174,39 +182,6 @@ pane_gap = 10,
       },
     },
   },
-  -- {
-  --   "nvimdev/dashboard-nvim",
-  --   priority = 1200,
-  --   event = "VimEnter",
-  --   opts = function(_, opts)
-  --     local logo = [[
-  --     ██╗     ██╗███╗   ██╗██╗   ██╗██╗  ██╗██╗  ██╗███████╗██╗     ██╗
-  --     ██║     ██║████╗  ██║██║   ██║╚██╗██╔╝██║  ██║██╔════╝██║     ██║
-  --     ██║     ██║██╔██╗ ██║██║   ██║ ╚███╔╝ ███████║█████╗  ██║     ██║
-  --     ██║     ██║██║╚██╗██║██║   ██║ ██╔██╗ ██╔══██║██╔══╝  ██║     ██║
-  --           ███████╗██║██║ ╚████║╚██████╔╝██╔╝ ██╗██║  ██║███████╗███████╗███████╗
-  --           ╚══════╝╚═╝╚═╝  ╚═══╝ ╚═════╝ ╚═╝  ╚═╝╚═╝  ╚═╝╚══════╝╚══════╝╚══════╝
-  --       by: William Ong
-  --     ]]
-  --
-  --     logo = string.rep("\n", 8) .. logo .. "\n\n"
-  --     opts.config.header = vim.split(logo, "\n")
-  --     local footer = function()
-  --       local stats = require("lazy").stats()
-  --       return {
-  --         "⚡ Neovim loaded " .. stats.loaded .. "/" .. stats.count .. " plugins",
-  --       }
-  --     end
-  --     opts.config.footer = footer()
-  --     opts.config.center = {
-  --       { action = "Telescope find_files", desc = " Find file", icon = " ", key = "f" },
-  --       { action = 'lua require("persistence").load()', desc = " Restore Session", icon = " ", key = "s" },
-  --       { action = "Lazy", desc = " Lazy", icon = "󰒲 ", key = "l" },
-  --       { action = "qa", desc = " Quit", icon = " ", key = "q" },
-  --     }
-  --   end,
-  -- },
-
   -- tmux navigation
   {
     "alexghergh/nvim-tmux-navigation",
