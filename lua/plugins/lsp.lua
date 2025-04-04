@@ -10,10 +10,6 @@ return {
         "css-lsp",
         "goimports",
         "gofumpt",
-        "typescript-language-server",
-        "ruby_lsp",
-        "erb-formatter",
-        "erb-lint",
       })
     end,
   },
@@ -59,49 +55,9 @@ return {
           },
         },
         lua_ls = {},
-        vtsls = {
-          enabled = false,
-        },
+        vtsls = {},
       },
-      gopls = {
-        keys = {},
-        settings = {
-          gopls = {
-            gofumpt = true,
-            codelenses = {
-              gc_details = false,
-              generate = true,
-              regenerate_cgo = true,
-              run_govulncheck = true,
-              test = true,
-              tidy = true,
-              upgrade_dependency = true,
-              vendor = true,
-            },
-            hints = {
-              assignVariableTypes = true,
-              compositeLiteralFields = true,
-              compositeLiteralTypes = true,
-              constantValues = true,
-              functionTypeParameters = true,
-              parameterNames = true,
-              rangeVariableTypes = true,
-            },
-            analyses = {
-              fieldalignment = false, -- Ensure it's explicitly disabled
-              nilness = true,
-              unusedparams = true,
-              unusedwrite = true,
-              useany = true,
-            },
-            usePlaceholders = true,
-            completeUnimported = true,
-            staticcheck = true,
-            directoryFilters = { "-.git", "-.vscode", "-.idea", "-.vscode-test", "-node_modules", "-vendor" },
-            semanticTokens = true,
-          },
-        },
-      },
+      gopls = {},
     },
     setup = {
       gopls = function(_, opts)

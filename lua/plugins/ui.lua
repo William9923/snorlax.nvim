@@ -105,7 +105,7 @@ return {
     event = "VeryLazy",
     opts = {
       options = {
-        theme = "lackluster-hack",
+        theme = "lackluster",
       },
     },
   },
