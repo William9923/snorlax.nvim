@@ -12,6 +12,7 @@ return {
     "rafamadriz/friendly-snippets",
     enabled = false,
   },
+  { "akinsho/bufferline.nvim", enabled = false },
   { "echasnovski/mini.pairs", enabled = false },
   { "echasnovski/mini.animate", enabled = false },
   { "echasnovski/mini.surround", enabled = false },
