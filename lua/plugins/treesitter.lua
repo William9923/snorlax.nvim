@@ -18,6 +18,8 @@ return {
         -- for noice.nvim
         "regex",
         "markdown_inline",
+        -- ruby related
+        "ruby",
 
         -- unrelated, but good to have
         "gitignore",

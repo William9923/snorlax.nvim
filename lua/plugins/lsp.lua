@@ -11,6 +11,9 @@ return {
         "goimports",
         "gofumpt",
         "typescript-language-server",
+        "ruby_lsp",
+        "erb-formatter",
+        "erb-lint",
       })
     end,
   },

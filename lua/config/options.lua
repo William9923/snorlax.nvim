@@ -61,6 +61,7 @@ vim.opt.iskeyword:append("-") -- treats words with `-` as single words
 vim.opt.path:append({ "**" }) -- Finding files - Search down into subfolders
 vim.opt.wildignore:append({ "*/node_modules/*" }) -- ignore: Node js, javascript node modules
 vim.opt.wildignore:append({ "*/vendor/*" }) -- ignore: Go vendor
+vim.opt.wildignore:append({ "statik.go" }) -- ignore: big files
 
 -- Cursor
 vim.opt.cursorline = true
@@ -75,7 +76,7 @@ vim.opt.foldlevelstart = 1
 vim.opt.foldnestmax = 4
 
 -- Copilot
--- vim.api.nvim_set_hl(0, "CmpItemKindCopilot", { fg = "#6CC644" })
+vim.api.nvim_set_hl(0, "CmpItemKindCopilot", { fg = "#6CC644" })
 
 -- By default, remove any animation
 vim.g.snacks_animate = false
@@ -96,3 +97,12 @@ vim.cmd([[
 vim.cmd([[
   setl ff=unix fixeol
 ]])
+
+-- Enable the option to require a Prettier config file
+-- If no prettier config file is found, the formatter will not be used
+vim.g.lazyvim_prettier_needs_config = true
+
+-- LSP Server to use for Ruby.
+-- Set to "solargraph" to use solargraph instead of ruby_lsp.
+vim.g.lazyvim_ruby_lsp = "ruby_lsp"
+vim.g.lazyvim_ruby_formatter = "rubocop"

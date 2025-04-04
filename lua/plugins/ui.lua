@@ -71,6 +71,7 @@ return {
       opts.presets.bottom_search = true
     end,
   },
+
   -- buffer filename
   {
     "b0o/incline.nvim",

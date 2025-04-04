@@ -89,7 +89,7 @@ return {
     "RRethy/vim-illuminate",
     event = "LazyFile",
     opts = {
-      delay = 200,
+      delay = 150,
       large_file_cutoff = 1000,
       large_file_overrides = {
         providers = { "lsp" },
@@ -98,7 +98,6 @@ return {
       providers = {
         "lsp",
         "treesitter",
-        "regex",
       },
       filetypes_denylist = {
         "dirvish",
