@@ -76,6 +76,10 @@ vim.opt.foldnestmax = 4
 
 -- Copilot
 -- vim.api.nvim_set_hl(0, "CmpItemKindCopilot", { fg = "#6CC644" })
+--
+--
+--
+vim.g.snacks_animate = false
 
 -- NOTE: apply auto folding options
 vim.cmd([[

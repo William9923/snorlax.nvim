@@ -1,5 +1,8 @@
 local M = {}
 
+local repeatMaxCounter = 30
+local durationWindowInMs = 1500
+
 function M.norepeat()
   ---@type table?
   local id
@@ -12,12 +15,12 @@ function M.norepeat()
       if vim.v.count > 0 then
         count = 0
       end
-      if count >= 20 then
+      if count >= repeatMaxCounter then
         ok, id = pcall(vim.notify, "Hold it! Don't Repeat!", vim.log.levels.WARN, {
           icon = "•`_´•",
           replace = id,
           keep = function()
-            return count >= 20
+            return count >= repeatMaxCounter
           end,
         })
         if not ok then
@@ -26,7 +29,7 @@ function M.norepeat()
         end
       else
         count = count + 1
-        timer:start(1500, 0, function()
+        timer:start(durationWindowInMs, 0, function()
           count = 0
         end)
         return map

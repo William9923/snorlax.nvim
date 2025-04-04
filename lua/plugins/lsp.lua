@@ -1,5 +1,4 @@
 return {
-  -- tools
   {
     "williamboman/mason.nvim",
     opts = function(_, opts)
@@ -8,11 +7,10 @@ return {
         "luacheck",
         "shellcheck",
         "shfmt",
-        -- "typescript-language-server",
         "css-lsp",
         "goimports",
         "gofumpt",
-        -- "delve",
+        "typescript-language-server",
       })
     end,
   },

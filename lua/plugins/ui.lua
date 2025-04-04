@@ -94,67 +94,118 @@ return {
     end,
   },
 
-  -- buffer line
-  {
-    "akinsho/bufferline.nvim",
-    event = "VeryLazy",
-    keys = {
-      { "<leader>.", "<Cmd>BufferLineCycleNext<CR>", desc = "Next tab" },
-      { "<leader>,", "<Cmd>BufferLineCyclePrev<CR>", desc = "Prev tab" },
-    },
-    opts = {
-      options = {
-        mode = "tabs",
-        -- separator_style = "slant",
-        show_buffer_close_icons = false,
-        show_close_icon = false,
-      },
-    },
-  },
-
   -- statusline (use default status line)
   {
     "nvim-lualine/lualine.nvim",
     event = "VeryLazy",
     opts = {
       options = {
-        theme = "lackluster",
+        theme = "lackluster-hack",
       },
     },
   },
 
   -- dashboard
   {
-    "nvimdev/dashboard-nvim",
-    event = "VimEnter",
-    opts = function(_, opts)
-      local logo = [[
-      ██╗     ██╗███╗   ██╗██╗   ██╗██╗  ██╗██╗  ██╗███████╗██╗     ██╗
-      ██║     ██║████╗  ██║██║   ██║╚██╗██╔╝██║  ██║██╔════╝██║     ██║
-      ██║     ██║██╔██╗ ██║██║   ██║ ╚███╔╝ ███████║█████╗  ██║     ██║
-      ██║     ██║██║╚██╗██║██║   ██║ ██╔██╗ ██╔══██║██╔══╝  ██║     ██║
-            ███████╗██║██║ ╚████║╚██████╔╝██╔╝ ██╗██║  ██║███████╗███████╗███████╗
-            ╚══════╝╚═╝╚═╝  ╚═══╝ ╚═════╝ ╚═╝  ╚═╝╚═╝  ╚═╝╚══════╝╚══════╝╚══════╝
-        by: William Ong
-      ]]
-
-      logo = string.rep("\n", 8) .. logo .. "\n\n"
-      opts.config.header = vim.split(logo, "\n")
-      local footer = function()
-        local stats = require("lazy").stats()
-        return {
-          "⚡ Neovim loaded " .. stats.loaded .. "/" .. stats.count .. " plugins",
-        }
-      end
-      opts.config.footer = footer()
-      opts.config.center = {
-        { action = "Telescope find_files", desc = " Find file", icon = " ", key = "f" },
-        { action = 'lua require("persistence").load()', desc = " Restore Session", icon = " ", key = "s" },
-        { action = "Lazy", desc = " Lazy", icon = "󰒲 ", key = "l" },
-        { action = "qa", desc = " Quit", icon = " ", key = "q" },
-      }
-    end,
+    "folke/snacks.nvim",
+    ---@type snacks.Config
+    opts = {
+      dashboard = {
+pane_gap = 10,
+        preset = {
+          -- Used by the `header` section
+          header = [[
+      ██╗  ██╗███████╗██╗     ██╗
+      ██║  ██║██╔════╝██║     ██║
+      ███████║█████╗  ██║     ██║
+      ██╔══██║██╔══╝  ██║     ██║
+        ██╗██║  ██║███████╗███████╗███████╗
+        ╚═╝╚═╝  ╚═╝╚══════╝╚══════╝╚══════╝
+    by: William Ong
+      ]],
+          ---@type snacks.dashboard.Item[]
+          keys = {
+            { icon = " ", key = "f", desc = "Find File", action = ":lua Snacks.dashboard.pick('files')" },
+            { icon = " ", key = "r", desc = "Find Text", action = ":lua Snacks.dashboard.pick('live_grep')" },
+            { icon = " ", key = "x", desc = "Lazy Extras", action = ":LazyExtras" },
+            { icon = "󰒲 ", key = "l", desc = "Lazy", action = ":Lazy" },
+            { icon = " ", key = "q", desc = "Quit", action = ":qa" },
+          },
+        },
+        -- your dashboard configuration comes here
+        -- or leave it empty to use the default settings
+        -- refer to the configuration section below
+        sections = {
+          { section = "header" },
+          { section = "keys", gap = 1, padding = 1 },
+          { section = "startup" },
+          -- {
+          --   pane = 2,
+          --   icon = " ",
+          --   title = "Git Status",
+          --   section = "terminal",
+          --   enabled = function()
+          --     return Snacks.git.get_root() ~= nil
+          --   end,
+          --   cmd = "git status --short --branch --renames",
+          --   height = 5,
+          --   ttl = 5 * 60,
+          --   indent = 4,
+          --   gap = 10,
+          --   padding = 1,
+          -- },
+          -- { pane = 2, icon = " ", title = "Recent Files", section = "recent_files", indent = 2, padding = 1 },
+          {
+            pane = 2,
+            icon = " ",
+            title = "Git History",
+            section = "terminal",
+            enabled = function()
+              return Snacks.git.get_root() ~= nil
+            end,
+            cmd = "git log --all --decorate --oneline --graph",
+            height = 25,
+            ttl = 5 * 60,
+            indent = 2,
+            gap = 2,
+            padding = 1,
+          },
+        },
+      },
+    },
   },
+  -- {
+  --   "nvimdev/dashboard-nvim",
+  --   priority = 1200,
+  --   event = "VimEnter",
+  --   opts = function(_, opts)
+  --     local logo = [[
+  --     ██╗     ██╗███╗   ██╗██╗   ██╗██╗  ██╗██╗  ██╗███████╗██╗     ██╗
+  --     ██║     ██║████╗  ██║██║   ██║╚██╗██╔╝██║  ██║██╔════╝██║     ██║
+  --     ██║     ██║██╔██╗ ██║██║   ██║ ╚███╔╝ ███████║█████╗  ██║     ██║
+  --     ██║     ██║██║╚██╗██║██║   ██║ ██╔██╗ ██╔══██║██╔══╝  ██║     ██║
+  --           ███████╗██║██║ ╚████║╚██████╔╝██╔╝ ██╗██║  ██║███████╗███████╗███████╗
+  --           ╚══════╝╚═╝╚═╝  ╚═══╝ ╚═════╝ ╚═╝  ╚═╝╚═╝  ╚═╝╚══════╝╚══════╝╚══════╝
+  --       by: William Ong
+  --     ]]
+  --
+  --     logo = string.rep("\n", 8) .. logo .. "\n\n"
+  --     opts.config.header = vim.split(logo, "\n")
+  --     local footer = function()
+  --       local stats = require("lazy").stats()
+  --       return {
+  --         "⚡ Neovim loaded " .. stats.loaded .. "/" .. stats.count .. " plugins",
+  --       }
+  --     end
+  --     opts.config.footer = footer()
+  --     opts.config.center = {
+  --       { action = "Telescope find_files", desc = " Find file", icon = " ", key = "f" },
+  --       { action = 'lua require("persistence").load()', desc = " Restore Session", icon = " ", key = "s" },
+  --       { action = "Lazy", desc = " Lazy", icon = "󰒲 ", key = "l" },
+  --       { action = "qa", desc = " Quit", icon = " ", key = "q" },
+  --     }
+  --   end,
+  -- },
 
   -- tmux navigation
   {

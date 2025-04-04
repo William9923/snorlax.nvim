@@ -13,6 +13,7 @@ return {
     enabled = false,
   },
   { "echasnovski/mini.pairs", enabled = false },
+  { "echasnovski/mini.animate", enabled = false },
   { "echasnovski/mini.surround", enabled = false },
   { "folke/tokyonight.nvim", enabled = false },
   { "catppuccin/nvim", enabled = false },

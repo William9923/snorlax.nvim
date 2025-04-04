@@ -14,6 +14,7 @@ return {
       go = { "goimports", "gofmt", stop_after_first = true },
       sql = { "pg_format", "sql_formatter" },
       yaml = { "yamlfmt" },
+      -- TODO: add ruby formatter
     },
   },
 }

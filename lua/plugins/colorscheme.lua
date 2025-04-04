@@ -36,5 +36,4 @@ return {
       -- vim.cmd.colorscheme("lackluster-mint")
     end,
   },
-  { "ellisonleao/gruvbox.nvim", priority = 1000, config = true },
 }
