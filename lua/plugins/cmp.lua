@@ -102,7 +102,7 @@ return {
       end
 
       -- Disable custom plugin autocompletion
-      for _, filetype in pairs({ "vimwiki", "TelescopePrompt", "NeoTree", "NvimTree" }) do
+      for _, filetype in pairs({ "vimwiki", "NeoTree", "NvimTree" }) do
         if vim.bo.filetype == filetype then
           return false
         end

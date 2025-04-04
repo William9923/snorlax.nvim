@@ -76,10 +76,12 @@ vim.opt.foldnestmax = 4
 
 -- Copilot
 -- vim.api.nvim_set_hl(0, "CmpItemKindCopilot", { fg = "#6CC644" })
---
---
---
+
+-- By default, remove any animation
 vim.g.snacks_animate = false
+
+-- By default, use fzf to search codebase
+vim.g.lazyvim_picker = "fzf"
 
 -- NOTE: apply auto folding options
 vim.cmd([[

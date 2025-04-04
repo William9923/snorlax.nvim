@@ -14,6 +14,9 @@ return {
       }
       local filter = Config.kind_filter
 
+      -- remove whitespace from a string on the filter variable
+      filter = filter:gsub("%s+", "")
+
       if type(filter) == "table" then
         filter = filter.default
         if type(filter) == "table" then

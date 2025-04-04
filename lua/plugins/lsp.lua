@@ -24,7 +24,7 @@ return {
       keys[#keys + 1] = { "<leader>ca", false }
       keys[#keys + 1] = { "<leader>cr", false }
       -- add a keymap
-      keys[#keys + 1] = { "gh", "<cmd>Telescope lsp_references<cr>", desc = "References" }
+      keys[#keys + 1] = { "gh", "<cmd>FzfLua lsp_references<cr>", desc = "References" }
       keys[#keys + 1] =
         { "<leader>la", vim.lsp.buf.code_action, desc = "Code Action", mode = { "n", "v" }, has = "codeAction" }
       if require("lazyvim.util").has("inc-rename.nvim") then

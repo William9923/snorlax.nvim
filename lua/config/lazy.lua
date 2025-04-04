@@ -24,16 +24,6 @@ require("lazy").setup({
             "",
             desc = "remove keybinding for lazy dashboard",
           },
-          {
-            "<leader>,",
-            "<cmd>bprevious<cr>",
-            desc = "Prev buffer",
-          },
-          {
-            "<leader>.",
-            "<cmd>bnext<cr>",
-            desc = "Prev buffer",
-          },
         }
       end,
       opts = {

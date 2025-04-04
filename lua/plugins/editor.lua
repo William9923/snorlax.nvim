@@ -148,7 +148,13 @@ return {
     event = "LazyFile",
     config = true,
     keys = {
-      { ";t", "<cmd>TodoTelescope keywords=TODO,FIX,FIXME<cr>", desc = "Todo/Fix/Fixme" },
+      {
+        ";t",
+        function()
+          require("todo-comments.fzf").todo({ keywords = { "TODO", "FIX", "FIXME" } })
+        end,
+        desc = "Todo/Fix/Fixme",
+      },
     },
   },
   {
