@@ -19,5 +19,7 @@ return {
         -- { "<leader>sG", LazyVim.pick("live_grep", { root = false }), desc = "Grep (cwd)" },
       }
     end,
+    -- optional for icon support
+    dependencies = { "nvim-tree/nvim-web-devicons" },
   },
 }

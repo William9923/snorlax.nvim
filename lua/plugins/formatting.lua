@@ -16,6 +16,7 @@ return {
       go = { "goimports", "gofmt", stop_after_first = true },
       sql = { "pg_format", "sql_formatter" },
       yaml = { "yamlfmt" },
+      ruby = { "rubocop", "erb-formatter", stop_after_first = true },
     },
   },
 }

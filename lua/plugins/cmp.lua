@@ -18,12 +18,7 @@ return {
             score_offset = 100,
             async = true,
             opts = {
-              -- Local options override global ones
               max_completions = 3, -- Override global max_completions
-              -- Final settings:
-              -- * max_completions = 3
-              -- * max_attempts = 2
-              -- * all other options are default
             },
           },
         },

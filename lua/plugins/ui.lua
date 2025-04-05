@@ -105,7 +105,7 @@ return {
     event = "VeryLazy",
     opts = {
       options = {
-        theme = "lackluster",
+        theme = "kanagawa",
       },
     },
   },
@@ -116,7 +116,7 @@ return {
     ---@type snacks.Config
     opts = {
       dashboard = {
-pane_gap = 10,
+        pane_gap = 10,
         preset = {
           -- Used by the `header` section
           header = [[
@@ -154,7 +154,7 @@ pane_gap = 10,
             enabled = function()
               return Snacks.git.get_root() ~= nil
             end,
-            cmd = "artprint -a colorowl2 -t \"We don't sleep at night - Owls\"",
+            cmd = 'artprint -a colorowl2 -t "We don\'t sleep at night - Owls"',
             height = 12,
             ttl = 5 * 60,
             indent = 2,

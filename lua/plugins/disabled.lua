@@ -1,5 +1,4 @@
 return {
-  -- disable
   { "echasnovski/mini.ai", enabled = false },
   { "folke/which-key.nvim", enabled = false },
   { "ggandor/leap.nvim", enabled = false },
@@ -12,9 +11,9 @@ return {
     enabled = false,
   },
   { "akinsho/bufferline.nvim", enabled = false },
-  { "echasnovski/mini.pairs", enabled = false },
+  -- { "echasnovski/mini.pairs", enabled = false },
+  -- { "echasnovski/mini.surround", enabled = false },
   { "echasnovski/mini.animate", enabled = false },
-  { "echasnovski/mini.surround", enabled = false },
   { "folke/tokyonight.nvim", enabled = false },
   { "catppuccin/nvim", enabled = false },
   { "nvim-telescope/telescope-fzf-native.nvim", enabled = false },

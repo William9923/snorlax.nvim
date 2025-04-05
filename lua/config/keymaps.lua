@@ -34,13 +34,13 @@ keymap("n", "n", "nzzzv", opts)
 keymap("n", "N", "Nzzzv", opts)
 
 -- Auto close bracket
-keymap("i", "'", "''<left>", opts)
-keymap("i", '"', '""<left>', opts)
-keymap("i", "(", "()<left>", opts)
-keymap("i", "{", "{}<left>", opts)
-keymap("i", "[", "[]<left>", opts)
-keymap("i", "<", "<><left>", opts)
-keymap("i", "`", "``<left>", opts)
+-- keymap("i", "'", "''<left>", opts)
+-- keymap("i", '"', '""<left>', opts)
+-- keymap("i", "(", "()<left>", opts)
+-- keymap("i", "{", "{}<left>", opts)
+-- keymap("i", "[", "[]<left>", opts)
+-- keymap("i", "<", "<><left>", opts)
+-- keymap("i", "`", "``<left>", opts)
 
 -- Clear highlights
 keymap("n", "<leader>h", "<cmd>nohlsearch<CR>", opts)
@@ -62,8 +62,8 @@ keymap("n", "+", "<C-a>", opts)
 keymap("n", "-", "<C-x>", opts)
 
 -- Delete without yanking
-keymap("n", "d", '"_d', opts)
-keymap("n", "x", '"_x', opts)
+-- keymap("n", "d", '"_d', opts)
+-- keymap("n", "x", '"_x', opts)
 
 -- Better paste (without removing from register)
 -- keymap("n", "p", '"_p', opts)

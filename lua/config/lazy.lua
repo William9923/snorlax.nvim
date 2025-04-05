@@ -27,23 +27,20 @@ require("lazy").setup({
         }
       end,
       opts = {
-        colorscheme = "lackluster-hack",
+        colorscheme = "kanagawa-dragon",
       },
     },
-    -- import any extras modules here
 
+    -- import any extras modules here
     { import = "lazyvim.plugins.extras.lang.go" },
     { import = "lazyvim.plugins.extras.lang.python" },
     { import = "lazyvim.plugins.extras.lang.rust" },
+    -- TODO: fix the environment for ruby
     { import = "lazyvim.plugins.extras.lang.ruby" },
     { import = "lazyvim.plugins.extras.lang.terraform" },
     { import = "lazyvim.plugins.extras.lang.docker" },
     { import = "lazyvim.plugins.extras.lang.json" },
     { import = "lazyvim.plugins.extras.lang.typescript" },
-
-    -- Enable copilot auto complition
-    -- { import = "lazyvim.plugins.extras.coding.copilot" },
-    -- { import = "lazyvim.plugins.extras.coding.copilot-chat" },
 
     -- import/override with your plugins
     { import = "plugins" },

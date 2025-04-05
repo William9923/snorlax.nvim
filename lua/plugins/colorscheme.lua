@@ -1,15 +1,24 @@
 return {
-  -- Lackluster theme
+  -- Kanagawa theme
   {
-    "slugbyte/lackluster.nvim",
+    "rebelot/kanagawa.nvim",
     lazy = false,
     priority = 1000,
     init = function()
-      -- vim.cmd.colorscheme("lackluster")
-      vim.cmd.colorscheme("lackluster-hack") -- my favorite
-      -- vim.cmd.colorscheme("lackluster-mint")
+      vim.cmd("colorscheme kanagawa-dragon")
     end,
   },
+  -- Lackluster theme
+  -- {
+  --   "slugbyte/lackluster.nvim",
+  --   lazy = false,
+  --   priority = 1000,
+  --   init = function()
+  --     -- vim.cmd.colorscheme("lackluster")
+  --     vim.cmd.colorscheme("lackluster-hack") -- my favorite
+  --     -- vim.cmd.colorscheme("lackluster-mint")
+  --   end,
+  -- },
   -- Gruvbox theme
   -- {
   --   "ellisonleao/gruvbox.nvim",
