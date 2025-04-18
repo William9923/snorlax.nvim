@@ -14,6 +14,7 @@ return {
           prev = "<leader>l[",
         },
       },
+      enabled = true,
       panel = { enabled = false },
       filetypes = {
         markdown = false,

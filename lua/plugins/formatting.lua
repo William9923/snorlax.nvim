@@ -16,7 +16,16 @@ return {
       go = { "goimports", "gofmt", stop_after_first = true },
       sql = { "pg_format", "sql_formatter" },
       yaml = { "yamlfmt" },
-      ruby = { "rubocop", "erb-formatter", stop_after_first = true },
+      ruby = { "rubyfmt", "rubocop", stop_after_first = true },
+      eruby = { "rubyfmt", "rubocop", stop_after_first = true },
+    },
+    formatters = {
+      rubocop = {
+        command = "bin/rubocop", -- use your project's binstub
+        args = { "--server", "--auto-correct-all", "--stderr", "--force-exclusion", "--stdin", "$FILENAME" },
+        stdin = true,
+        cwd = require("conform.util").root_file({ ".rubocop.yml", ".git" }), -- optional: set project root
+      },
     },
   },
 }

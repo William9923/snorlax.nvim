@@ -1,4 +1,4 @@
-local filetype = require "mason-lspconfig.mappings.filetype"
+local filetype = require("mason-lspconfig.mappings.filetype")
 -- Autocmds are automatically loaded on the VeryLazy event
 -- Default autocmds that are always set: https://github.com/LazyVim/LazyVim/blob/main/lua/lazyvim/config/autocmds.lua
 -- Add any additional autocmds here
@@ -31,13 +31,21 @@ vim.api.nvim_create_autocmd({ "BufEnter" }, {
 vim.api.nvim_create_autocmd("BufWritePre", {
   pattern = "*.go", -- autoformat on golang file
   callback = function(args)
-    require("conform").format({ bufnr = args.buf })
+    if type(args.buf) == "number" then
+      require("conform").format({ bufnr = args.buf })
+    else
+      vim.notify("Conform: Invalid buffer number", vim.log.levels.ERROR)
+    end
   end,
 })
 
 vim.api.nvim_create_autocmd("BufWritePre", {
   pattern = "*.py", -- autoformat on python file
   callback = function(args)
-    require("conform").format({ bufnr = args.buf })
+    if type(args.buf) == "number" then
+      require("conform").format({ bufnr = args.buf })
+    else
+      vim.notify("Conform: Invalid buffer number", vim.log.levels.ERROR)
+    end
   end,
 })
